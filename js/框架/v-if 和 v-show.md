@@ -1,6 +1,7 @@
-> v-if 的特点：每次都会重新删除或者创建元素
+# v-if 与 v-show
+> **v-if** 的特点：每次都会重新删除或者创建元素
 >
-> v-show的特点：每次不会重新进行DOM的删除和创建操作，只是切换了元素的 display：none 样式
+> **v-show**的特点：每次不会重新进行DOM的删除和创建操作，只是切换了元素的 display：none 样式
 
 > v-if 有较高的切换性能消耗
 >
@@ -44,3 +45,27 @@
 <!---->
 <h3 style:"display:none;">这是用v-show控制的元素</h3>
 ```
+
+# v-else-if
+
+```
+<div v-if="type === 'A'">
+    A
+</div>
+<div v-else-if="type === 'B'">
+    B
+</div>
+<div v-else-if="type === 'C'">
+    C
+</div>
+<div v-else>
+    Not A/B/C
+</div>
+```
+## v-else渲染可能有延迟
+延迟原因：v-if 切换的时候是重新渲染DOM结构的
+
+解决方法：
+    
+1. 加定时器
+2. Vue.nextTick()，在下次DOM更新循环结束后执行
