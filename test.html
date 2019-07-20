@@ -17,46 +17,11 @@
   </style>
 </head>
 <body>
-  <div id="app">
-    <input type="button" value="快到碗里来" @click="flag=!flag">
-    <transition 
-        @before-enter="beforeEnter"
-        @enter="enter"
-        @after-enter="afterEnter">
-        <div class="ball" v-show="flag"></div>
-    </transition>
-</div>
+  
 
 <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
 <script>
-  var app = new Vue({
-      el:"#app",
-      data:{
-          flag:false
-      },
-      methods:{
-          beforeEnter(el){
-              // beforeEnter 表示动画入场之前，此时，动画尚未开始，可以在 beforeEnter 中设置元素开始动画之前的起始样式
-              el.style.transform = "translate(0,0)" 
-          },
-          enter(el,done){
-              // 这句话没有实际的作用，如果不写，出不来动画效果
-              // 可以认为 el.offsetWidth 会强制动画刷新
-              el.offsetWidth
-              // enter 表示动画开始之后的样式，这里可以设置小球完成动画之后的结束状态
-              el.style.transform = "translate(150px,300px)"
-              el.style.transition = "all 1s ease"
-
-              // 当动画完成之后想让它消失，就调用 done()
-              // 这里的 done，也就是 afterEnter 这个函数，也就是说：done 是 afterEnter 函数的引用
-              done()
-          },
-          afterEnter(el){
-              // 表示动画完成之后，会调用
-              this.flag=!this.flag
-          }
-      }
-  })
+  
 </script>
 
 </body>
