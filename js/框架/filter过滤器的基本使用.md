@@ -1,18 +1,18 @@
 ## 过滤器
 > 概念：Vue.js允许你自定义过滤器，**可被用作一些常见的文本格式化**。过滤器可以用在两个地方：**mustache插值和v-bind表达式**。过滤器应该被添加在JavaScript表达式的尾部，由"管道"符指示
 
+语法：
+> {{ msg | filterName }}
 - Vue.filter('过滤器的名称',function(data){})
 - 过滤器中的function ，第一个参数已经被规定死了，永远都是过滤器 管道符前面传递过来的数据。
-- 过滤器调用时候的格式 {{ name | 过滤器的名称 }}
 
+## 定义Vue全局的过滤器
 ```
 <!-- 把 "单纯" 换成 "可爱" 再输出 -->
 <div id="app">
     <p>{{ msg | msgFormat | test }}</p>
     <p>{{ msg | msgFormat1('可爱！！') }}</p>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     // 定义一个 Vue全局的过滤器，叫做 msgFormat
     Vue.filter('msgFormat',function(msg){
@@ -52,29 +52,23 @@ var d = (dt.getDate()).toString().padStart(2,'0')
 // 如何自定义一个私有的过滤器
 var app2 = new Vue({
     el:"#app2",
-    data:{
-        dt:new Date()
-    },
-    methods:{
-
-    },
     filters:{  //定义私有过滤器
+        filterName(..){
 
+        }
     }
 })
 ```
 - 定义私有过滤器，过滤器两个条件 **【过滤器名称 和 处理函数】**
 - 过滤器调用 采用 **就近原则**，如果私有过滤器和全局过滤器名称一致，这时优先调用私有过滤器
+
+自定义一个私有的过滤器
 ```
-// 如何自定义一个私有的过滤器
 var app2 = new Vue({
 el:"#app2",
 data:{
     dt:new Date()
-},
-methods:{
-
-},
+}，
 filters:{  
     dateFormat:function(dateStr,pattern){
         // 根据给定的时间字符串，得到特定的时间
