@@ -1,3 +1,21 @@
+# arguments
+- 定义：传递给函数的参数 的**类数组对象**
+- arguments对象是所有非箭头函数中都可用的局部变量
+- arguments对象不是一个Array，只有 length 属性 和索引元素
+	- 它可以被转为真正的Array再当做数组使用
+```
+var args = Array.prototype.slice.call(arguments);
+var args = [].slice.call(arguments);
+// ES2015
+const args = Array.from(arguments);
+const args = [...arguments];
+```
+- 可以使用索引确定单个参数的类型
+> typeof arguments[0]
+
+## arguments.callee
+指向当前执行的函数
+
 **在调用函数时，浏览器每次都会传进两个隐含的参数。**
 1. 函数的上下文对象this
 2. 封装实参的对象arguments
