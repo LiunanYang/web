@@ -14,3 +14,25 @@ function delLastStr(str, delStr) {
 }
 ```
 ## 3.把多维数组降维
+1. 方法1：
+- 使用数组的**flat**方法
+```
+arr.flat(Infinity)
+```
+2.方法2： 
+- 使用 **reduce、concat** 和**递归**无限反嵌套多层嵌套的数组
+```
+var arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
+
+function flattenDeep(arr1) {
+   return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+}
+flattenDeep(arr1);
+// [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
+```
+3.方法3：使用栈
+
+## 4.分析('b' + 'a' + +'a' + 'a').toLowerCase()返回的结果
+> **+'a'**  这个加号是一元操作符，相当于 Number('a'),即NaN
+
+所以加后的结果为 baNaNa，toLowerCase后为 banana

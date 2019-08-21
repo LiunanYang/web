@@ -1,0 +1,2 @@
+- fetch返回的promise不会拒绝http的错误状态，即使响应是一个405或者500
+- 在默认情况下，fetch不会接收或者发送cookies
