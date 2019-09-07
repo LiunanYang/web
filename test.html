@@ -7,52 +7,28 @@
   <title>Document</title>
   
   <style>
-    
+    input{
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      border: 1px solid red;
+      transition: 0.2s all ease;
+    }
+    input:checked{
+      border: 7px solid red;
+    }
   </style>
 </head>
 <body>
+  <input type="radio" name="a">
+  <input type="radio" name="a">
+  <input type="radio" name="a">
+  <input type="radio" name="a">
 </body>
 <script>
-    
-  // 递归
-  function f(num){  
-    return (function f1(num){
-      if(num<=1){
-        return 1
-      }
-      if(num>1){
-        return num+f1(num-1)
-        // return num+arguments.callee(num-1)
-      }
-    })(num)
-  }
-  console.log(f(4))
-  var copyF = f
-  f = null
-  console.log(copyF(4))
 
-  // 模拟块级作用域 
-  // function count(){
-  //   (function(){
-  //     for(var i=0;i<5;i++){
-  //       console.log(i)
-  //     }
-  //   })()
-  //   // var i
-  //   console.log(i)
-  // }
-  // count()
-
-  // 闭包
-  function read(){
-    var arr=[]
-    for(var i=0;i<5;i++){
-      arr[i]=function(){
-        return i
-      }()
-    }
-    return arr
-  }
-  console.log(read())
 </script>
 </html>
