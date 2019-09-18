@@ -13,6 +13,9 @@ const args = [...arguments];
 - 可以使用索引确定单个参数的类型
 > typeof arguments[0]
 
+## 越界
+- arguments[arguments.length]  -> undefined
+
 ## arguments.callee
 指向当前执行的函数
 
