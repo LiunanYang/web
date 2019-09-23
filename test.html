@@ -60,61 +60,32 @@
   <abbr title="abcsdcd">aaa</abbr>
 </body>
 <script>
-  class Dog{
-    constructor (color,duration,awakenTime){
-      this.color = color
-      this.duration = duration
-      this.awakenTime = awakenTime
+  // function SuperType(){
+  //   this.property = true
+  // }
+  // SuperType.prototype.getSuperValue= function(){
+  //   return this.property
+  // }
 
-      this.cleanID = null
-      this.awakenID = {once:null,always:null}
-      this.cleanUp()
-      this.awakenUp()
-    }
-    cleanUp(){
-      this.cleanDown()
-      this.cleanID = setInterval(function(){
-        console.log('clean clean clean...')
-      },24*60*60)
-    }
-    cleanDown(){
-      if(this.cleanID){
-        clearInterval(this.cleanID)
-        this.cleanID=null
-      }
-    }
-    awakenUp(){
-      this.awakenDown()
-      let d = new Date()
-      let hours = 8-d.getHours
-      let mins = 8-d.mins-30
-      let seconds = 0
-      if(hours>=0&&mins>=0){
-        seconds=hours*60*60+mins*60
-      }else{
-        hours = 24+8-hours
-        if(mins>=30){
-          hours--
-          mins=90-mins
-        }
-        seconds = hours*60*60+mins*60
-      }
+  // function SubType(){
+  //   this.subproperty=false
+  // }
+  // //继承SuperType
+  // SubType.prototype = new SuperType()
+  // SubType.prototype.getSubValue = function(){
+  //   return this.subproperty
+  // }
+  // var a = new SubType()
+  // console.log(a.getSuperValue())
+  
+function getName(){
+  console.log(2)
+}
+var getName = function(){
+  console.log(1)
+}
 
-      setTimeout(func,seconds)
-      let func = function(){
-        let todo = console.log("wang wang")
-        todo()
-        this.awakenID = setInterval(todo,24*60*60)
-      }
-    }
-    awakenDown(){
-      if(this.awakenID.once){
-        clearTimeout(this.awakenID.once)
-        clearInterval(this.awakenID.always)
-        this.awakenID.once = null
-        this.awakenID.always = null
-      }
-    }
-  }
+getName()
+
 </script>
 </html>
