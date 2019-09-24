@@ -114,7 +114,7 @@ watch可以用于监视非DOM元素的变化
 
 ```
 
-## watch、computed、methods
+# watch、computed、methods
 - computed 属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。主要当作属性来使用；
 - methods方法表示一个具体的操作，主要是写业务逻辑；
 - watch 一个对象，键是需要观察的表达式，值是对应的会调函数。主要用来监听特定数据的变化，从而进行某些具体的业务逻辑操作；可以看做是‘computed’和‘methods’的结合体。
