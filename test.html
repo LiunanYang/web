@@ -119,5 +119,20 @@
     return a
   }
   d()[2]()
+
+  function superType(){
+    this.a="superA"
+  }
+  superType.prototype.b="superB"
+  function subType(){
+    this.a="subA"
+  }
+  subType.prototype.b="subB"
+  subType.prototype = new superType()
+
+  var instance = new subType()
+
+  console.log(instance.a+" "+instance.b)
+
 </script>
 </html>
