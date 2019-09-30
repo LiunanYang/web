@@ -7,132 +7,16 @@
   <title>Document</title>
   
   <style>
-    /* input{
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      border: 1px solid red;
-      transition: 0.2s all ease;
-    }
-    input:checked{
-      border: 7px solid red;
-    } */
-    #outer a{
-      color: red;
-    }
-    .div1 a{
-      color:green!important;
-    }
-    #inner{
-      color:blue;
-    }
-    #outer #inner{
-      color:orange;
-    }
-    body:before {
-      content: "";
-      position: fixed;
-      top: -10px;
-      left: 0;
-      width: 100%;
-      height: 10px;   
-
-      -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-      -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-      box-shadow: 0px 0px 10px rgba(0,0,0,.8);   
-
-      z-index: 100;
-    }
+    
   </style>
 </head>
-<body>
-<!-- <div id="Layer1" style="position:absolute; width:260px; height:115px; z-index:1; left: 50px; top: 77px; filter:Alpha(opacity=30)">  -->
-  <input type="radio" name="a" readonly>
-  <input type="radio" name="a">
-  <input type="radio" name="a">
-  <input type="radio" name="a">
-  <input type="text" name="" id="">
-  <textarea name="" id="" cols="30" rows="10"></textarea>
-  <input type="button" value="啊啊">
-  <input type="checkbox" name="" id="">
-  <input type="color" name="" id="">
-  <input type="search" name="" id="">
-  <select>
-    <option value ="volvo">Volvo</option>
-    <option value ="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-<!-- </div> -->
-
-  <div id="outer" class="div1">
-    <a href="" id="inner" class="a1">12345678</a>
-  </div>
-  <abbr title="abcsdcd">aaa</abbr>
+<body onhashchange="fn()">
+  <a href="#info">信息</a>
+  <a href="#logout">退出</a>
 </body>
 <script>
-  // function SuperType(){
-  //   this.property = true
-  // }
-  // SuperType.prototype.getSuperValue= function(){
-  //   return this.property
-  // }
-
-  // function SubType(){
-  //   this.subproperty=false
-  // }
-  // //继承SuperType
-  // SubType.prototype = new SuperType()
-  // SubType.prototype.getSubValue = function(){
-  //   return this.subproperty
-  // }
-  // var a = new SubType()
-  // console.log(a.getSuperValue())
-  
-  function getName(){
-    console.log(2)
+  function fn(e){
+    console.log(e)
   }
-  var getName = function(){
-    console.log(1)
-  }
-
-  // getName()
-  function change(color){
-    document.bgColor=color
-  }
-  // change("red")
-  function c(){
-    for(var i=0;i<5;i++){
-      setTimeout(()=>{console.log(i)},3000)
-    }
-  }
-  function d(){
-    var a=[]
-    for(var i=0;i<5;i++){
-      a[i]=(function(n){
-        return function(){console.log(n)}
-      })(i) 
-    }
-    return a
-  }
-  d()[2]()
-
-  function superType(){
-    this.a="superA"
-  }
-  superType.prototype.b="superB"
-  function subType(){
-    this.a="subA"
-  }
-  subType.prototype.b="subB"
-  subType.prototype = new superType()
-
-  var instance = new subType()
-
-  console.log(instance.a+" "+instance.b)
-
 </script>
 </html>
