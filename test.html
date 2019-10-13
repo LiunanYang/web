@@ -5,20 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  
   <style>
-    
+    /* #circle{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      clip-path: circle();
+    } */
+    /* #circle:after {
+      content: "●";
+      font-size: 10vw;
+      line-height: 1;
+    }
+    #circle{
+      border: 1px solid red;
+    } */
+
+  
+    /* #circle1{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      clip-path: polygon(50% 0,50% 100%,0 50%,100% 50%);
+      transition: 1s ease;
+      
+    } */
+    #main{
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* border: 1px solid black; */
+      animation: main 2s infinite alternate;
+    }
+    #main div{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+    #a{
+      clip-path: polygon(50% 0,100% 100%,0 100%);
+      animation: a 2s infinite alternate;
+      left: 0;
+    }
+    #b{
+      clip-path: polygon(0 0,100% 0,50% 100%);
+      animation: b 2s infinite alternate;
+      left:100px;
+    }
+    #c{
+      clip-path: polygon(50% 0,100% 100%,0 100%);
+      animation: c 2s infinite alternate;
+      left: 200px;
+    }
+    #d{
+      clip-path: polygon(0 0,100% 0,50% 100%);
+      animation: d 2s infinite alternate;
+      left: 300px;
+    }
+    @keyframes a{
+      0%,10%{
+        background-color:blue;
+        clip-path: polygon(50% 0,100% 100%,0 100%);
+      }
+      90%,100%{
+        background-color: red;
+        clip-path: polygon(0 0,100% 0,50% 50%);
+        left: 150px;
+      }
+    }
+    @keyframes b{
+      0%,10%{
+        background-color:green;
+        clip-path: polygon(0 0,100% 0,50% 100%);
+      }
+      90%,100%{
+        background-color: red;
+        clip-path: polygon(0 0,50% 50%,0 100%);
+        left: 150px;
+      }
+    }
+    @keyframes c{
+      0%,10%{
+        background-color:orange;
+        clip-path: polygon(50% 0,100% 100%,0 100%);
+      }
+      90%,100%{
+        background-color: red;
+        clip-path: polygon(100% 0,100% 100%,50% 50%);
+        left: 150px;
+      }
+    }
+    @keyframes d{
+      0%,10%{
+        background-color:yellow;
+        clip-path: polygon(0 0,100% 0,50% 100%);
+      }
+      90%,100%{
+        background-color: red;
+        clip-path: polygon(50% 50%,100% 100%,0 100%);
+        left: 150px;
+      }
+    }
+    @keyframes main{
+      0%,10%{
+        width:400px;
+        height:100px;
+      }
+      90%,100%{
+        width: 100px;
+        height: 100px;
+      }
+    }
   </style>
 </head>
-<body onhashchange="fn()">
-  <a href="#info">信息</a>
-  <a href="#logout">退出</a>
+<body>
+  
+  
 </body>
 <script>
-  function f(a,b){
-    console.log(arguments[0]+","+arguments[1]+","+arguments[2])
-    console.log(b)
+  // function sortFun (arr) {
+  //   var a=[]
+  //   for(var i=0;i<arr.length;i++){
+  //       a[i]=0
+  //   }
+  //   for(var i=0;i<arr.length;i++){
+  //     a[arr[i]]++
+  //   }
+  //   return a
+  // }
+  // console.log(sortFun([1,2,5,1,6,2,2]))
+  var args = new Object( );
+  var query="https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name"
+  var arr = query.split("?")
+  var pairs = arr[1].split("&"); 
+  for(var i = 0; i < pairs.length; i++) 
+  {
+      var k = pairs[i].indexOf("="); 
+      if (k == -1) 
+          continue; 
+      var argname = pairs[i].substring(0,k); 
+      var value = pairs[i].substring(k+1); 
+      value = decodeURIComponent(value); 
+      args[argname] = value; 
   }
-  f(1,2,3,4)
+  console.log(args['from']); 
+
+  function getParam (url, key) {
+  var result = new Object( );
+  var search = url.split("?")
+  var arr = search[1].split("&"); 
+  for(var i = 0; i < arr.length; i++) 
+  {
+      var k = arr[i].indexOf("="); 
+      if (k == -1){
+          continue; 
+      }    
+      var key = arr[i].substring(0,k); 
+      var value = arr[i].substring(k+1); 
+      result[key] = value; 
+  }
+  return result[key]; 
+  }
+  console.log(getParam("https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name","from"))
+
 </script>
 </html>
