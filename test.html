@@ -124,50 +124,74 @@
   
 </body>
 <script>
-  // function sortFun (arr) {
-  //   var a=[]
-  //   for(var i=0;i<arr.length;i++){
-  //       a[i]=0
-  //   }
-  //   for(var i=0;i<arr.length;i++){
-  //     a[arr[i]]++
-  //   }
-  //   return a
+  // var args = new Object( );
+  // var query="https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name"
+  // var arr = query.split("?")
+  // var pairs = arr[1].split("&"); 
+  // for(var i = 0; i < pairs.length; i++) 
+  // {
+  //     var k = pairs[i].indexOf("="); 
+  //     if (k == -1) 
+  //         continue; 
+  //     var argname = pairs[i].substring(0,k); 
+  //     var value = pairs[i].substring(k+1); 
+  //     value = decodeURIComponent(value); 
+  //     args[argname] = value; 
   // }
-  // console.log(sortFun([1,2,5,1,6,2,2]))
-  var args = new Object( );
-  var query="https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name"
-  var arr = query.split("?")
-  var pairs = arr[1].split("&"); 
-  for(var i = 0; i < pairs.length; i++) 
-  {
-      var k = pairs[i].indexOf("="); 
-      if (k == -1) 
-          continue; 
-      var argname = pairs[i].substring(0,k); 
-      var value = pairs[i].substring(k+1); 
-      value = decodeURIComponent(value); 
-      args[argname] = value; 
-  }
-  console.log(args['from']); 
+  // console.log(args['from']); 
 
-  function getParam (url, key) {
-  var result = new Object( );
-  var search = url.split("?")
-  var arr = search[1].split("&"); 
-  for(var i = 0; i < arr.length; i++) 
-  {
-      var k = arr[i].indexOf("="); 
-      if (k == -1){
-          continue; 
-      }    
-      var key = arr[i].substring(0,k); 
-      var value = arr[i].substring(k+1); 
-      result[key] = value; 
+  // function getParam (url, key) {
+  // var result = new Object( );
+  // var search = url.split("?")
+  // var arr = search[1].split("&"); 
+  // for(var i = 0; i < arr.length; i++) 
+  // {
+  //     var k = arr[i].indexOf("="); 
+  //     if (k == -1){
+  //         continue; 
+  //     }    
+  //     var key = arr[i].substring(0,k); 
+  //     var value = arr[i].substring(k+1); 
+  //     result[key] = value; 
+  // }
+  // return result[key]; 
+  // }
+  // console.log(getParam("https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name","from"))
+  // var obj = {a:1,b:2}
+  // Object.setPrototypeOf(obj,{c:3})
+  // console.log(obj)
+  // Object.defineProperty(obj,'d',{value:4,enumerable:false})
+  // for(let prop in obj){
+  //   console.log(prop)
+  // }
+  // console.log(obj)
+
+  var book={
+    _year:2019,
+    num:0
   }
-  return result[key]; 
-  }
-  console.log(getParam("https://mfang.58.com/sh/loupan/59039761/?from=home&city=%E4%B8%8A%E6%B5%B7&name","from"))
+
+  Object.defineProperty(book,'year',{
+    // get:function(){return this._year},
+    set:function(newValue){
+      if(newValue>2019){
+        this._year= newValue,
+        this.num+=newValue-2019
+      }
+    }
+  })
+  book.year=2029
+  console.log(book)
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </html>
