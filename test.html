@@ -117,10 +117,20 @@
         height: 100px;
       }
     }
+    #box1{
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      padding: 50px;
+      border: 5px solid ;
+      background-color: blue;
+      /* box-sizing: content-box; */
+      /* background-clip:content-box; */
+    }
   </style>
 </head>
 <body>
-  
+  <div id="box1">111</div>
   
 </body>
 <script>
@@ -165,31 +175,6 @@
   //   console.log(prop)
   // }
   // console.log(obj)
-
-  var book={
-    _year:2019,
-    num:0
-  }
-
-  Object.defineProperty(book,'year',{
-    // get:function(){return this._year},
-    set:function(newValue){
-      if(newValue>2019){
-        this._year= newValue,
-        this.num+=newValue-2019
-      }
-    }
-  })
-  book.year=2029
-  console.log(book)
-
-
-
-
-
-
-
-
 
 
 
