@@ -117,20 +117,26 @@
         height: 100px;
       }
     }
-    #box1{
-      width: 200px;
-      height: 200px;
-      margin: 20px;
-      padding: 50px;
-      border: 5px solid ;
-      background-color: blue;
-      /* box-sizing: content-box; */
-      /* background-clip:content-box; */
+    
+    #box1:link{
+      color: red;
     }
+    #box1:visited{
+      color: orange;
+    }
+    #box1:hover{
+      color: yellow;
+    }
+    #box1:active{
+      color:green;
+    }
+    
+    
+    
   </style>
 </head>
 <body>
-  <div id="box1">111</div>
+  <a id="box1" href="www.baidu.com">111</a>
   
 </body>
 <script>
