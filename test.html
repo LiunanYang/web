@@ -16,13 +16,18 @@
   
 </body>
 <script>
+  
+  // var foo = function(){
+  //   console.log(this.bar)
+  // }
+
   function foo(){
     console.log(this.bar)
   }
   var bar = "bar1"
   var o2 = {bar:"bar2",foo:foo}
   var o3 = {bar:"bar3",foo:foo}
-
+  
   foo()  //默认绑定
   o2.foo()   //隐式绑定
   foo.call(o3)  // 显式绑定
