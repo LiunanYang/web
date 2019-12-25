@@ -6,7 +6,7 @@ www.baidu.com/index request=> cookie 服务器检测 id => {status:true} 检测s
 www.baidu.com/index 服务器查找cookie，找不到cookie id整个key，判断结果：未登陆，转跳到登录页
 
 # cookie
-- cookie是HTTP请求报文中的一个头部字段
+- cookie是HTTP请求报文中的一个首部字段Set-Cookie
 - 保存在客户端浏览器，每次请求都带上它
 - 一组键值对，大小一般不超过4K(不同浏览器不同)
 - 使用：如果不在浏览器中设置过期时间，cookie被保存在内存中，生命周期随浏览器的关闭而结束，这种cookie简称**会话cookie**。如果在浏览器中设置了cookie的过期时间，cookie被保存在硬盘中，关闭浏览器后，cookie数据仍然存在，直到过期时间结束才消失。

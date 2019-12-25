@@ -21,29 +21,32 @@
   //   console.log(this.bar)
   // }
 
-  function foo(){
-    console.log(this.bar)
-  }
-  var bar = "bar1"
-  var o2 = {bar:"bar2",foo:foo}
-  var o3 = {bar:"bar3",foo:foo}
+  // function foo(){
+  //   console.log(this.bar)
+  // }
+  // var bar = "bar1"
+  // var o2 = {bar:"bar2",foo:foo}
+  // var o3 = {bar:"bar3",foo:foo}
   
-  foo()  //默认绑定
-  o2.foo()   //隐式绑定
-  foo.call(o3)  // 显式绑定
+  // foo()  //默认绑定
+  // o2.foo()   //隐式绑定
+  // foo.call(o3)  // 显式绑定
 
-  var name = 'Nicolas'
-  function Person(){
-    this.name = 'Smiley'
-    this.sayName=function(){
-      console.log(this)
-      console.log(this.name)
-    }
-    setTimeout(this.sayName,0)
-  }
-  var person = new Person()
-  person.sayName()
+  // var name = 'Nicolas'
+  // function Person(){
+  //   this.name = 'Smiley'
+  //   this.sayName=function(){
+  //     console.log(this)
+  //     console.log(this.name)
+  //   }
+  //   setTimeout(this.sayName,0)
+  // }
+  // var person = new Person()
+  // person.sayName()
 
+
+  var str = "abcd"
+  console.log(`12${str}`)
 
 </script>
 </html>
