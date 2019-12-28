@@ -6,47 +6,48 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    
-    
-
   </style>
 </head>
 <body>
-  sadsafsaqqqqqq<wbr>asadfaaaaaaaaaa
-  
+  <div id="app">
+    <ul>
+      <li v-for="(item,index) in arr" :key="index">{{item}}</li>
+    </ul>
+  </div>
 </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-  
-  // var foo = function(){
-  //   console.log(this.bar)
-  // }
-
-  // function foo(){
-  //   console.log(this.bar)
-  // }
-  // var bar = "bar1"
-  // var o2 = {bar:"bar2",foo:foo}
-  // var o3 = {bar:"bar3",foo:foo}
-  
-  // foo()  //默认绑定
-  // o2.foo()   //隐式绑定
-  // foo.call(o3)  // 显式绑定
-
-  // var name = 'Nicolas'
-  // function Person(){
-  //   this.name = 'Smiley'
-  //   this.sayName=function(){
-  //     console.log(this)
-  //     console.log(this.name)
-  //   }
-  //   setTimeout(this.sayName,0)
-  // }
-  // var person = new Person()
-  // person.sayName()
-
-
-  var str = "abcd"
-  console.log(`12${str}`)
-
+  var app = new Vue({
+      el:"#app",
+      data: {
+        arr: [1,2]
+      },
+      methods:{
+          show(){
+              console.log("执行show方法")
+          }
+      },
+      created() {
+        setTimeout(()=>{
+          this.arr = [4,5,6,7]
+          console.log('created',document.querySelectorAll('li').length)
+        }) 
+        setTimeout(()=>{
+          this.arr = [10,11,12,13,14]
+          console.log('created',document.querySelectorAll('li').length)
+        },1000)   
+      },
+      mounted() {
+        console.log('mounted',document.querySelectorAll('li').length)
+      },
+      beforeUpdate() {
+        console.log('beforeUpdate',document.querySelectorAll('li').length)
+      },
+      updated() {
+        console.log('updated',document.querySelectorAll('li').length)
+      }
+  })
 </script>
 </html>

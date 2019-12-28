@@ -13,7 +13,7 @@
 ## 渐变
 - linear-gradient 线性渐变
 - radial-gradient 径向渐变
-## 过渡
+## 过渡 
 - transition：过渡动画
 ## 动画
 - animation:自定义动画
