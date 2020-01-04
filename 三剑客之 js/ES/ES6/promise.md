@@ -10,7 +10,7 @@ request.onreadystatechange = function () {
             return fail(request.status);
         }
     }
-}
+} 
 ```
 把回调函数success(request.responseText)和fail(request.status)写到一个AJAX操作里很正常，但是不好看，而且**不利于代码复用**。
 ```

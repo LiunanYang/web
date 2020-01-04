@@ -9,45 +9,20 @@
   </style>
 </head>
 <body>
-  <div id="app">
-    <ul>
-      <li v-for="(item,index) in arr" :key="index">{{item}}</li>
-    </ul>
-  </div>
+  
 </body>
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-  var app = new Vue({
-      el:"#app",
-      data: {
-        arr: [1,2]
-      },
-      methods:{
-          show(){
-              console.log("执行show方法")
-          }
-      },
-      created() {
-        setTimeout(()=>{
-          this.arr = [4,5,6,7]
-          console.log('created',document.querySelectorAll('li').length)
-        }) 
-        setTimeout(()=>{
-          this.arr = [10,11,12,13,14]
-          console.log('created',document.querySelectorAll('li').length)
-        },1000)   
-      },
-      mounted() {
-        console.log('mounted',document.querySelectorAll('li').length)
-      },
-      beforeUpdate() {
-        console.log('beforeUpdate',document.querySelectorAll('li').length)
-      },
-      updated() {
-        console.log('updated',document.querySelectorAll('li').length)
-      }
+  const promise = new Promise(function(){
+    if(success){
+      resolve(value)
+    }else{
+      reject(error)
+    }
+  }) 
+  promise.then(function(value){
+
+  },function(value){
+
   })
 </script>
 </html>

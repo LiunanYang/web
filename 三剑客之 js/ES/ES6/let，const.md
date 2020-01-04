@@ -39,7 +39,7 @@ bar(); // 报错
 
 ### 不允许重复声明
 ```
-function func(arg) {
+function func(arg) { 
   let arg;
 }
 func() // 报错
