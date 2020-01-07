@@ -12,17 +12,34 @@
   
 </body>
 <script>
-  const promise = new Promise(function(){
-    if(success){
-      resolve(value)
-    }else{
-      reject(error)
+  // const promise = new Promise(function(){
+  //   if(success){
+  //     resolve(value)
+  //   }else{
+  //     reject(error)
+  //   }
+  // }) 
+  // promise.then(function(value){
+
+  // },function(value){
+
+  // })
+
+  function test(person) {
+    person.age = 26
+    person = {
+      name: 'yyy',
+      age: 30
     }
-  }) 
-  promise.then(function(value){
-
-  },function(value){
-
-  })
+    return person
+  }
+  var p1 = {
+    name: 'yck',
+    age: 25
+  }
+  
+  var p2 = test(p1)
+  console.log(p1) //
+  console.log(p2) // 
 </script>
 </html>
