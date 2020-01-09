@@ -12,34 +12,27 @@
   
 </body>
 <script>
-  // const promise = new Promise(function(){
-  //   if(success){
-  //     resolve(value)
-  //   }else{
-  //     reject(error)
-  //   }
-  // }) 
-  // promise.then(function(value){
-
-  // },function(value){
-
-  // })
-
-  function test(person) {
-    person.age = 26
-    person = {
-      name: 'yyy',
-      age: 30
-    }
-    return person
+  function f(a,b){
+    return a+b
   }
-  var p1 = {
-    name: 'yck',
-    age: 25
-  }
+  var a = [1,2,3]
+
+  console.log(typeof a)
+  console.log(f instanceof Object)
+  console.log(a instanceof Array)
+
+  var s1 = 'yln'
+  s1.color = "red"
+  console.log(s1)
   
-  var p2 = test(p1)
-  console.log(p1) //
-  console.log(p2) // 
+  var value = "25"
+  var number = Number(value)
+  console.log(typeof number) 
+  console.log(number instanceof Object) //?
+
+  var obj = new Number(value)
+  console.log(typeof obj)
+  console.log(obj instanceof Number)
+
 </script>
 </html>
