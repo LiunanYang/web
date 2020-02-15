@@ -36,7 +36,7 @@ console.info(array); // ["a", "b", 0, 1, 2]
 - call（）方法可以将实参在对象之后一次传递；
 
 语法:
->fun.call(thisArg, arg1, arg2, ...)
+> fun.call(thisArg, arg1, arg2, ...)
 
 1. **thisArg**:在 fun 函数运行时指定的 this 值。
 	- 指定的 this 值并不一定是该函数执行时真正的 this 值，若此函数在非严格模式下运行，
