@@ -1,11 +1,18 @@
 ```
-function fun(){
-	alert("我是fun函数！")
-}
-
-fun.call() //我是fun函数！
-fun.apply() //我是fun函数！
-fun() //我是fun函数！
+  function fun(a,b){
+    console.log(`${this.name},a:${a},b:${b}`)
+  }
+  var o1 = {
+    name:'yangliunan',
+    age:12
+  }
+  var o2 = {
+    name:"kanggege",
+    age:30
+  }
+  fun.apply(o1,[1,2,3]) 
+  fun.call(o2,1) 
+  fun.bind(o2)(1,2)
 ```
 # apply()
 - 调用一个具有给定this值的函数，以及作为一个数组或类数组对象提供的参数。
@@ -58,4 +65,3 @@ function Food(name, price) {
 }
 console.log(new Food('cheese', 5).name);  //cheese
 ```
-[点此查看更多](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)

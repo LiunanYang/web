@@ -121,4 +121,4 @@ f1()
 console.log(3)
 //   1 3 2
 ```
-解析：有 resolve 说明 promise 成功了，所以 await 能拿到结果
+解析：有 resolve 说明 promise 成功了，所以 await 能拿到结果；
