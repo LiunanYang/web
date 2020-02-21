@@ -23,13 +23,17 @@ document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=
 
 - Path：表示cookie的所属路径。
 
+- value:保存用户的登录状态，将这个值加密，不能使用明文的用户标识
+
 - **Expire** time/Max-age：表示了cookie的有效期。expire的值，是一个时间，过了这个时间，该cookie就失效了。或者是用max-age指定当前cookie是在多长时间之后而失效。如果服务器返回的一个cookie，没有指定其expire time，那么表明此cookie有效期只是当前的
 
 - session，即是session cookie，当前session会话结束后，就过期了。对应的，当关闭浏览器的时候，此cookie就应该被浏览器所删除了。 
 
 - secure：表示该cookie只能用https传输。一般用于包含认证信息的cookie，要求传输此cookie的时候，必须用https传输。
 
-- httponly：表示此cookie必须用于http或https传输。这意味着，浏览器脚本，比如javascript中，是不允许访问操作此cookie的。
+- httponly：表示此cookie必须用于http或https传输。这意味着，浏览器脚本，比如javascript中，是不允许访问操作此cookie的。减少xss攻击。
+
+- same-site:对顶浏览器不能再跨域请求中携带 cookie 。减少了 CSRF攻击。
 
 ### cookie缺点
 - 大小限制

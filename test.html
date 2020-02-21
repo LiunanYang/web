@@ -7,20 +7,24 @@
   <title>Document</title>
   <style>
   </style>
-</head>，
+</head>
 <body>
-  <ul id="ul">
-    <li>1</li>
-      <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-  </ul>
+  <h1>HELLO</h1>
 </body>
 <script>
-  let ul = document.querySelector('#ul')
-  ul.addEventListener('click',(event)=>{
-    console.log(event.target)
-  })
+  let onWatch = (obj,setBind,getLogger)=>{
+    let handler = {
+      set(target,property,value,receiver){
+        setBind(value,property)
+        return Reflect.set(target,property,value)
+      },
+      get(target,property,receiver){
+        getLogger(target,property)
+        return Reflect.get(target,property,receiver)
+      }
+    }
+    return new Proxy(obj,handler)
+  }
 </script>
+
 </html>
