@@ -1,4 +1,5 @@
 # nodejs基本概念与特点
+单线程
 
 # CommonJS规范 核心模块
 

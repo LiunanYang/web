@@ -46,25 +46,4 @@
 //     })
 //     console.log(8)
 
-var express = require('express')
 
-// 作为http服务
-var app = express()
-app.use(express.static(__dirname))
-app.listen(90)
-
-// 91端口服务 返回数据
-var app2 = express()
-// 方法1：修改响应头
-app2.get("/",function(req,res){
-  res.header("Access-Control-Allow-Origin","*")
-  res.send("你好")
-})
-// 方法2： jsonp
-app2.get("/",function(req,res){
-  var funcname = req.query.callback
-  res.send(`${funcname}('你好')`)
-  // f('你好')
-})
-
-app2.listen(91)
