@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-
-  </style>
+  <meta charset="utf-8">
+  <title>获取nodeJs数据</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $.ajax({
+      url: "http://localhost:8888/",
+      type: "GET",
+      data:{name:'鲁班大师',iq:'250'},
+      contextType: "application/json",
+      success: function (res) {
+        // console.log(eval('('+res+')'))
+        console.log(res)
+      },
+      error: function (err) {
+      }
+    });
+  </script>
 </head>
 <body>
-
 </body>
-<script>
-
-
-</script>
-
 </html>
