@@ -1,3 +1,22 @@
+```
+	function assignHandler(){
+		var element = document.getElementById('someElement')
+		element.onclick = function(){
+			alert(element.id)
+		}
+		element = null
+	}
+	function assignHandler(){
+		var element = document.getElementById('someElement')
+		var id = element.id
+		element.onclick = function(){
+			alert(id)
+		}
+		element = null
+	}
+	assignHandler()
+
+```
 # 垃圾回收
 - 或者叫做 “**垃圾收集**” ，GC；
 - 程序运行过程会产生垃圾，垃圾积攒过多之后，会导致程序运行速度过慢。Javascript 具有自动垃圾收集机制，执行环境会负责管理代码执行过程中使用的内存

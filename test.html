@@ -5,18 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    #someElement{
+    .someElement{
       width: 200px;
       height: 200px;
       background-color: red;
+      /* display: none; */
+      /* visibility: hidden; */
+      /* z-index: -9999; */
+      /* opacity: 0; */
+      /* -webkit-clip-path:polygon(0px,0px,0px,0px,0px,0px,0px,0px); */
+      /* transform: scale(0); //缩放 */
+      /* transform: skew(90edg); */
+      transform: translate(-999px);
+    }
+    #A{
+        width:100%;
+    }
+    #B{
+        width:100px;
+        height:100px;
+        float:left;
+    }
+    #C{
+        width:calc( 100% - 100px  );
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <div id="someElement">
+    <div class="someElement">
       asdff
     </div>
+    <p>ppppppppppp</p>
+    <div class="">
+      asdff
+    </div>
+  </div>
+  <div id="A">
+    <div id="B"></div>
+    <div id="C"></div>
   </div>
   <script>  
 
@@ -36,8 +63,8 @@
     // console.log(result)
 
     // 相等比较
-    console.log([]==false)  //true
-    console.log(![]==false)  //true
+    // console.log([]==false)  //true
+    // console.log(![]==false)  //true
     // 先将[] 转换为布尔类型=>true  ！[]=> false
     // 在比较的时候可以转换左右两边的数据类型
     // 对象==对象 比较地址
@@ -46,25 +73,26 @@
     // null == undefined 在两个等于号下不相等，三个等于号下不相等，并且和其他值都不相等
     // 剩下的情况，只要两边类型不同，最后都转换为数字
 
-    function assignHandler(){
-      var element = document.getElementById('someElement')
-      element.onclick = function(){
-        alert(element.id)
-      }
-      element = null
-    }
-    function assignHandler(){
-      var element = document.getElementById('someElement')
-      var id = element.id
-      element.onclick = function(){
-        alert(id)
-      }
-      element = null
-    }
-    assignHandler()
+    // function searchNumber( str ) {
+    //   var arr=[],n=0
+    //   for(var i=0;i<str.length;i++){
 
-    数组中常用的迭代方法和底层实现的源码
-    forEach、map、filter、find、every、some、reduce
+    //     if(!isNaN(str[i]/1)){
+          
+    //       for(var j=i;j<str.length;j++){
+    //         if(!isNaN(str[i]/1)){
+    //           console.log()
+    //         }
+    //         index=j
+    //       }
+    //       console.log()
+    //       n++
+
+    //     }
+
+    //   }
+    //   // console.log(arr)
+    // }
 
 
   </script>
