@@ -1,18 +1,28 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-
-    
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      padding: 20px;
+      border: 10px solid ;
+      margin: 30px;
+      box-sizing: border-box;
+    }
   </style>
 </head>
 <body>
-  <div id="A">
-    <div id="B"></div>
-    <div id="C"></div>
+
+  <div>
+    hi
+    <p>abc</p>
+    <p id="sss">123</p>
+    hello!
   </div>
   <script>  
     // 数字运算
@@ -62,6 +72,40 @@
     //   // console.log(arr)
     // }
 
+
+
+    function patch(){
+      if(sameVnode(oldVnode,vnode)){
+        patchVnode(oldVnode,vnode)
+      }else{
+        const oEl = oldVnode.oE
+        let parentEle = api.parentNode(oEl)
+        createEle(vnode)
+        if(parentEle !== null){
+          api.insertBefore(parentEle,vnode.el,api.nextSibling(oEl))
+          api.removeChild(parentEle,oldVnode.el)
+          oldVnode = null 
+        }
+      }
+      return vnode
+    }
+
+    function sameVnode(a,b){
+      return a.key === b.key
+    }
+
+    function patchVnode(oldVnode,vnode){
+      const el = vnode.el = oldVnode.el
+      let i,oldCh = oldVnode.children,ch = vnode.children
+      if(oldVnode === vnode)return
+      if(oldVnode.text!==null && vnode.text!==null && oldVnode.text !==vnode.text){
+        api.setTextContent(el,vnode.text)
+      }else{
+
+      }
+    }
+
+  
 
 
     
