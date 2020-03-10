@@ -74,41 +74,9 @@
 
 
 
-    function patch(){
-      if(sameVnode(oldVnode,vnode)){
-        patchVnode(oldVnode,vnode)
-      }else{
-        const oEl = oldVnode.oE
-        let parentEle = api.parentNode(oEl)
-        createEle(vnode)
-        if(parentEle !== null){
-          api.insertBefore(parentEle,vnode.el,api.nextSibling(oEl))
-          api.removeChild(parentEle,oldVnode.el)
-          oldVnode = null 
-        }
-      }
-      return vnode
-    }
 
-    function sameVnode(a,b){
-      return a.key === b.key
-    }
+  // 1 2 4 6 
 
-    function patchVnode(oldVnode,vnode){
-      const el = vnode.el = oldVnode.el
-      let i,oldCh = oldVnode.children,ch = vnode.children
-      if(oldVnode === vnode)return
-      if(oldVnode.text!==null && vnode.text!==null && oldVnode.text !==vnode.text){
-        api.setTextContent(el,vnode.text)
-      }else{
-
-      }
-    }
-
-  
-
-
-    
 
   </script>
 </body>
