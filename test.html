@@ -5,25 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    div{
-      width: 200px;
-      height: 200px;
-      background-color: red;
-      padding: 20px;
-      border: 10px solid ;
-      margin: 30px;
-      box-sizing: border-box;
+    /* 圣杯 */
+    /* #wrap{
+      padding-left: 200px;
+      padding-right: 150px;
     }
+    #main{
+      float: left;
+      width: 100%;
+      background-color: red;
+    }
+    #left{
+      width: 200px;
+      float: left;
+      background-color: blue;
+      margin-left: -100%;
+      position: relative;
+      right: 200px;
+    }
+    #right{
+      width: 150px;
+      float: left;
+      margin-right: -150px; 
+      background-color: pink;
+    } */
+
+    /* 双飞翼 */
+    #wrap{
+      width: 100%;
+      float: left;
+      background-color: red;
+    }
+    #main{
+      margin-left: 200px;
+      margin-right: 300px;
+    }
+    #left{
+      width: 200px;
+      float: left;
+      background-color: blue;
+      margin-left: -100%;
+    }
+    #right{
+      width: 300px;
+      float: left;
+      background-color: pink;
+      margin-left: -300px;
+    }
+
   </style>
 </head>
 <body>
+  <!-- <div id="wrap">
+    <div id="main">main</div>
+    <div id="left">12333</div>
+    <div id="right">213141</div>
+  </div> -->
 
-  <div>
-    hi
-    <p>abc</p>
-    <p id="sss">123</p>
-    hello!
+  <div id="wrap">
+    <div id="main">mainmainmainmainmainmainmainmainmainmainmainmainmain</div>
   </div>
+  <div id="left">12333</div>
+  <div id="right">213141</div>
+  
   <script>  
     // 数字运算
     let result = 1 + null + undefined +'Tencent'+ false + [] + undefined+null
@@ -71,13 +115,6 @@
     //   }
     //   // console.log(arr)
     // }
-
-
-
-
-  // 1 2 4 6 
-
-
   </script>
 </body>
 </html>
