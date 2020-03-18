@@ -3,70 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Demo</title>
   <style>
-    /* 圣杯 */
-    /* #wrap{
-      padding-left: 200px;
-      padding-right: 150px;
-    }
-    #main{
-      float: left;
-      width: 100%;
-      background-color: red;
-    }
-    #left{
-      width: 200px;
-      float: left;
-      background-color: blue;
-      margin-left: -100%;
-      position: relative;
-      right: 200px;
-    }
-    #right{
-      width: 150px;
-      float: left;
-      margin-right: -150px; 
-      background-color: pink;
-    } */
-
-    /* 双飞翼 */
-    #wrap{
-      width: 100%;
-      float: left;
-      background-color: red;
-    }
-    #main{
-      margin-left: 200px;
-      margin-right: 300px;
-    }
-    #left{
-      width: 200px;
-      float: left;
-      background-color: blue;
-      margin-left: -100%;
-    }
-    #right{
-      width: 300px;
-      float: left;
-      background-color: pink;
-      margin-left: -300px;
-    }
 
   </style>
 </head>
 <body>
-  <!-- <div id="wrap">
-    <div id="main">main</div>
-    <div id="left">12333</div>
-    <div id="right">213141</div>
-  </div> -->
 
-  <div id="wrap">
-    <div id="main">mainmainmainmainmainmainmainmainmainmainmainmainmain</div>
-  </div>
-  <div id="left">12333</div>
-  <div id="right">213141</div>
   
   <script>  
     // 数字运算
@@ -94,76 +37,6 @@
     // NaN ==NaN  NaN和自己以及其他值都不相等
     // null == undefined 在两个等于号下不相等，三个等于号下不相等，并且和其他值都不相等
     // 剩下的情况，只要两边类型不同，最后都转换为数字
-
-    // function searchNumber( str ) {
-    //   var arr=[],n=0
-    //   for(var i=0;i<str.length;i++){
-
-    //     if(!isNaN(str[i]/1)){
-          
-    //       for(var j=i;j<str.length;j++){
-    //         if(!isNaN(str[i]/1)){
-    //           console.log()
-    //         }
-    //         index=j
-    //       }
-    //       console.log()
-    //       n++
-
-    //     }
-
-    //   }
-    //   // console.log(arr)
-    // }
-
-    function quick_sort(arr,from,to){
-	var i = from; //哨兵i
-	var j = to; //哨兵j
-	var key = arr[from]; //标准值
-	if(from >= to){ //如果数组只有一个元素
-	   return;
-	}
-	while(i < j){
-		while(arr[j] > key && i < j){ //从右边向左找第一个比key小的数，找到或者两个哨兵相碰，跳出循环
-			j--;
-		}
-		while(arr[i] <= key && i < j){  //从左边向右找第一个比key大的数，找到或者两个哨兵相碰，跳出循环,这里的=号保证在本轮循环结束前，key的位置不变，否则的话跳出循环，交换i和from的位置的时候，from位置的上元素有可能不是key
-			i++;
-		}
-		/**
-		  代码执行道这里，1、两个哨兵到找到了目标值。2、j哨兵找到了目标值。3、两个哨兵都没找到(key是当前数组最小值)
-		**/
-		if(i < j){ //交换两个元素的位置
-			var temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
-
-		}
-	}
-	arr[from] = arr[i] //
-	arr[i] = key;
-    quick_sort(arr,from,i-1);
-	quick_sort(arr,i+1,to);
-}
-
-// var arr = [3,3,-5,6,0,2,-1,-1,3];
-// console.log(arr);
-// quick_sort(arr,0,arr.length-1);
-// console.log(arr);
-
-  // var a = new RegExp('/<script[\s\S]*?<\/script>/i')
-  // console.log( a.test("<script>alert(1)<scrscriptipt>") )
-  // console.log( a.test("<img src='' onerror=alert(1)>") )
-  // console.log( a.test("<scrscriptipt>alert(1)<script>") )
-  // console.log( a.test("<scrscriptipt>alert(1)<scrscriptipt>") )
-
-    var f = (a,b)=>{
-      console.log(a,b)
-      console.log(arguments[0])
-    }
-    f(1,2)
-
-
   </script>
 </body>
 </html>

@@ -1,3 +1,11 @@
+### npm
+
+1.提供了统一下载途径
+2.自动下载依赖
+
+node_modules：存放模块
+
+
 我们刚才封装了一个数学函数 math-tool 很好用，此时 node 开发者也发现了这个事情，如果让全球开发者贡献自己实用的模块该多好。让大家不要重复造轮子。
 
 node.js 主导了一个社区，叫做 **npm (node package management,node 包管理器)**
@@ -18,6 +26,24 @@ var solarLunar = require("solarLunar")
 var result = solarLunar.solar2lunar(2018,12,3)
 console.log(result)
 ```
+
+# 全局安装
+
+> npm install 包名字 -g
+
+此时这个包（模块）将被安装在全局，就是上午说的：
+**C:\Users\11529\AppData\Roaming\npm**
+
+# 淘宝镜像
+淘宝为了方便中国程序员对抗GFW，发明了 cnpm 。你可以用此代替官方版本（只读），同步频率目前 10  分钟一次，保证尽量与官方服务同步。
+
+
+如何设置淘宝呢？
+> $ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+今后所有的 npm 活动，都用 cnpm 代替
+
+
 
 # 依赖
 npm有一个创造性的举动，可以让开发者声明自己的项目的全部依赖。我可以告诉别人这个项目依赖什么。在项目目录下，创建一个文件，叫做 package.json:

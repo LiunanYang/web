@@ -1,3 +1,4 @@
+1.
 ```
 	Promise.resolve().then(() => {
     console.log('1');
@@ -14,4 +15,10 @@
     }).then(() => {   
     console.log('6');
   });
+```
+2.
+```
+  Promise.reject('error')
+  .then( ()=>{console.log('success1')}, ()=>{console.log('error1')} )
+  .then( ()=>{console.log('success2')}, ()=>{console.log('error2')} )
 ```

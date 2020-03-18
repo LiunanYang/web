@@ -114,46 +114,6 @@ server.use('/',function(req,res){
 console.log('我爱你')
 server.listen(8080)
 ```
-# 模板引擎
-渲染页面、可以变化
-
-两种主流引擎：
-- jade
-    - 破坏式、侵入式、强依赖
-    - 根据缩进、确定层级
-    - 属性放在括号里面
-    - 内容空一个格写后面
-
-
-- ejs
-    - 温和、非侵入式、弱依赖
-
-```
-const jade = require("jade")
-
-var str = jade.render('html')
-// var str = jade.renderFile('./views/1.jade',{pretty:true})
-
-console.log(str)
-```
-
-```
-// 1.ejs中：
-<body>
-    我叫：<%= name %>
-</body>
-
-// node.js中
-const ejs = require("ejs")
-
-ejs.renderFile('./views/1.ejs',{name:'blue'},function(err,data){
-    if(err){
-        console.log('编译失败')
-    }else{
-        console.log(data)
-    }
-})
-```
 
 
 

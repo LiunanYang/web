@@ -1,5 +1,5 @@
 ## Number
-- 在js中，所有类型都是number类型，包括整数和浮点数
+- number类型，包括整数和浮点数
 - 如果Number表示的数字超过了最大值，则会返回一个Infinity 
   - Infinity 正无穷
   - -Infinity 负无穷
@@ -19,7 +19,7 @@
     - typeof NaN ：Number
     - typeof Infinity ：Number
 - 这个数值用于表示一个本来要返回数值的操作数未返回数值的情况(这样就不会抛出错误了)
-- 任何值和NaN做任何比较都是flase
+- 任何值和NaN做任何比较都是false
 
 ```
 alert(NaN==NaN)  //false
@@ -43,7 +43,7 @@ Boolean(true、false) | 1、0
 数字值 | 简单的传入和返回
 null 值 | 返回0
 undefined | 返回NaN
-字符串 | 只包含数字->转换为十进制数；包含浮点格式->对应的浮点数值；十六进制->转为相同大小的十进制整数值；空字符串->返回0；其他->返回NaN
+字符串 | 只包含数字->转换为十进制数； 包含浮点格式->对应的浮点数值；十六进制->转为相同大小的十进制整数值；空字符串->返回0；其他->返回NaN
 
 ```
 var num = Number("hello")   //NaN
