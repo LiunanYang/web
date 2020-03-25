@@ -1,54 +1,13 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo</title>
-  <style>
-
-  </style>
+  <title>test</title>
 </head>
 <body>
-  <script>  
 
-    let result = 1 + null + undefined +'Tencent'+ false + [] + undefined+null
-    // console.log(1+null+undefined)
-    // console.log(1+undefined)
-    // console.log('T'+false+[])
-    // console.log(1+[])
-    // console.log('T'+[])
-    // console.log('T'+undefined)
-    // console.log(2+null)
-    // console.log('T'+null)
-    // console.log([]+false)
-    // console.log([]+true)
-    // console.log(result)
-
-    // 相等比较
-    // console.log([]==false)  //true
-    // console.log(![]==false)  //true
-    // 先将[] 转换为布尔类型=>true  ！[]=> false
-    // 在比较的时候可以转换左右两边的数据类型
-    // 对象==对象 比较地址
-    // 对象==字符串  对象变为字符串
-    // NaN ==NaN  NaN和自己以及其他值都不相等
-    // null == undefined 在两个等于号下不相等，三个等于号下不相等，并且和其他值都不相等
-    // 剩下的情况，只要两边类型不同，最后都转换为数字
-    var person = {
-      _name:"liunan",
-      age:20
-    }
-    console.log(person.name)
-
-    Object.defineProperty(person,"name",{
-      get: function(){
-        return `${this._name}!!!`
-      },
-      set: (newValue)=>{
-        return this._name=newValue
-      }
-    })
-    console.log(person.name);
+  <script>
 
   </script>
 </body>
