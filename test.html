@@ -4,11 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
+  <style>
+    .parent{
+      font-size:16px;
+      border: 1px solid red;
+    }
+    .child{
+      /* font-size:2em; */
+      font-size:32px;
+      /* height:3em; */
+      height: 48px;
+      border: 1px solid;
+    }
+
+  </style>
 </head>
 <body>
-
+  <div class="parent">
+    1324
+    <div class="child">12345</div>
+  </div>
   <script>
+    var val="a",result=""
+    switch(val){
 
+      case 'a':
+        result+='a';
+      case 'b':
+        result+='b';
+        break;
+      default:
+        result+='c';
+    }
+    console.log(result);
   </script>
 </body>
 </html>
