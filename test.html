@@ -5,38 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
   <style>
-    .parent{
-      font-size:16px;
-      border: 1px solid red;
+    #box1{
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      border: 20px solid;
     }
-    .child{
-      /* font-size:2em; */
-      font-size:32px;
-      /* height:3em; */
-      height: 48px;
-      border: 1px solid;
+    #box2{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    #box3{
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+
+    #a{
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+    #b{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    #c{
+      width: 100px;
+      height: 100px;
+      background-color: pink;
     }
 
   </style>
 </head>
 <body>
-  <div class="parent">
-    1324
-    <div class="child">12345</div>
-  </div>
-  <script>
-    var val="a",result=""
-    switch(val){
+  
+  <input type="text" name="username" id="input">
 
-      case 'a':
-        result+='a';
-      case 'b':
-        result+='b';
-        break;
-      default:
-        result+='c';
-    }
-    console.log(result);
+  <div id="box1">
+    1
+    <div id="box2">
+      2
+      <div id="box3">
+        3
+      </div>
+    </div>
+  </div>
+  <hr>
+    <div id="a">a
+      <div id="b">b
+          <div id="c">c</div>
+      </div>
+    </div>
+  <script>
+    document.getElementById("box3").addEventListener("click",function(e){
+      alert("3")
+    })
+    document.getElementById("box3").addEventListener("click",function(e){
+      alert("3")
+    },true)
+    document.getElementById("box2").addEventListener("click",function(e){
+      alert("2")
+      // e.cancelBubble = true
+      // e.stopPropagation()
+      e.stopImmediatePropagation()
+    })
+    document.getElementById("box2").addEventListener("click",function(e){
+      alert("2")
+    },true)
+    // document.getElementById("box1").addEventListener("click",function(){
+    //   alert("1")
+    // })
+    document.getElementById("box1").addEventListener("dblclick",function(){
+      alert("dbl1")
+    })
+    
+    var a = document.getElementById("a"),
+        b = document.getElementById("b"),
+        c = document.getElementById("c");
+    c.addEventListener("click", function (event) {
+        console.log("c1");
+    });
+    c.addEventListener("click", function (event) {
+        console.log("c2");
+    }, true);
+    b.addEventListener("click", function (event) {
+        console.log("b");
+    }, true);
+    a.addEventListener("click", function (event) {
+        console.log("a1");
+    }, true);
+    a.addEventListener("click", function (event) {
+        console.log("a2")
+    });
+    a.addEventListener("click", function (event) {
+        console.log("a3");
+        event.stopImmediatePropagation();
+    }, true);
+    a.addEventListener("click", function (event) {
+        console.log("a4");
+    }, true);
+    
   </script>
 </body>
 </html>
