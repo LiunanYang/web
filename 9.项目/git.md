@@ -2,6 +2,9 @@
 分布式版本控制系统
 
 分布式：研究如何把一个需要巨大计算能力的才能解决的问题分成许多小的部分，把这些部分分配给多个计算机来处理，最后把这些结果综合起来得到最终的结果。
+- git init
+- git config --global user.name  "username"  
+- git config --global user.email  "email"
 
 ## 版本操作
 
@@ -16,6 +19,8 @@
 - 查看当前分支：`git branch`
 - 删除分支：`git branch -d <name>`
 - 合并某分支到当前分支：`git merge <name>`
+
+
 
 ## warning: LF will be replaced by CRLF in 解决办法
 首先问题出在不同操作系统所使用的换行符是不一样的，下面罗列一下三大主流操作系统的换行符：

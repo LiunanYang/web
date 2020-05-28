@@ -1,4 +1,7 @@
-5.28
+2020.5.29
+
+
+2020.5.28
 - jQuery选择器
 - jQuery ready() 与 window.onload 
 - 隐藏一个元素的方法
@@ -17,3 +20,8 @@
 - 单位 px em rem vm vh
 - 样式： 文字 倍径 边框 阴影
 - 浮动
+
+
+- <input type="checkbox" checked>done</input>
+
+- <input type="checkbox" checked>continue</input>
