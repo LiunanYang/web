@@ -8,3 +8,9 @@
 @-moz-document url-prdfix() {.test {color:#fff}} /* For Forefox */
 * 上述代码中的3,4两行就是典型的利用能力来进行选择的CSS Hack。
 ```
+# css hack 针对不同浏览器的css
+# 规则  指示css行为的css语句
+- @+标识符 xxx；
+    - @charset 样式表使用的字符集
+    - @import
+    - ...

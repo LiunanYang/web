@@ -1,18 +1,23 @@
 2020.5.29
+- alert执行的时刻
+- js执行顺序
 
+2020.5.28 (29号补)
+- 
+- 
 
-2020.5.28
-- jQuery选择器
-- jQuery ready() 与 window.onload 
-- 隐藏一个元素的方法
-- 框架与库的区别
-- CSS规范
-- CSS的引入
+2020.5.27 (29号补)
+- jQuery选择器 √
+- jQuery ready() 与 window.onload √
+- 隐藏一个元素的方法 √
+- 框架与库的区别 √
+- CSS规范 √
+- CSS的引入 √
 - 标签 表格
 - 有利于SEO的标签
-- 块级元素和行内元素 以及 嵌套规则
+- 块级元素和行内元素 以及 嵌套规则 √
 - 锚链接
-- 特殊符号 &nbsp;
+- 特殊符号 &nbsp; ->实体
 - 表单属性
 - input类型 只读\禁用
 - CSS选择器 以及 样式继承
@@ -21,7 +26,6 @@
 - 样式： 文字 倍径 边框 阴影
 - 浮动
 
-
-- <input type="checkbox" checked>done</input>
-
-- <input type="checkbox" checked>continue</input>
+Q1：@import要用css引擎解析 
+扩展Q2:页面的解析顺序
+Q3:伪元素和伪类选择器的区别
