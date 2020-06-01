@@ -20,6 +20,7 @@
 - 删除分支：`git branch -d <name>`
 - 合并某分支到当前分支：`git merge <name>`
 
+- 设置本地分支追踪远程分支: git push --set-upstream origin company_dev  
 
 
 ## warning: LF will be replaced by CRLF in 解决办法
