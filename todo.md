@@ -1,10 +1,24 @@
+2020.6.2
+- js单线程如何实现异步
+- 前端处理异步
+- 定义组件
+- 插槽
+- jQuery动画
+    - stop?
+- jQuery 数据缓存
+- jQuery 队列控制
+- 计算属性 computed
+- 监听属性 v-model
+- v-if、v-show
+- vue操作样式
+- 表单属性绑定
+    - v-model.lazy、v-model.number、v-model.trim
+- 修饰符
+- SPA单页应用
+
 2020.5.29
 - alert执行的时刻
 - js执行顺序
-
-2020.5.28 (29号补)
-- 
-- 
 
 2020.5.27 (29号补)
 - jQuery选择器 √

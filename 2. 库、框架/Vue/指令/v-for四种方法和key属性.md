@@ -1,4 +1,5 @@
 # v-for 四种用法
+
 ## 1.v-for循环普通数组
 ```
 <div id="app">
@@ -72,6 +73,7 @@ v-for
 ```
 
 ## 3.v-for 循环对象
+- 参数：（value, key, index）
 ```
 <div id="app">
     <!-- 在遍历对象身上的键值对的时候，除了有 val、key ，还有第三个值 索引  -->

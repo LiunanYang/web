@@ -1,50 +1,15 @@
-# v-if 与 v-show
-- **v-if** 的特点：每次都会重新删除或者创建元素
-    - v-if 有较高的切换性能消耗
+## v-if 与 v-show
 
-- **v-show**的特点：每次不会重新进行DOM的删除和创建操作，只是切换了元素的 display：none 样式
-    -  v-show有较高的初始渲染消耗 
+- | v-if | v-show
+--|--|--|
+方法 | 动态的向DOM树内的删除或创建DOM元素 | 设置DOM元素的display样式
+编译过程 | 有一个局部编译卸载的过程，切换过程中销毁和重建内部的事件监听和子组件 | 简单的css切换
+编译条件 | v-if是惰性的,如果初始条件为假，则什么也不做；只有在条件第一次变为真时才开始局部编译 | 在任何条件下（无论首次条件是否为真）都被编译，然后被缓存，而且DOM元素保留
+性能消耗 | 有较高的`切换性能`消耗 | 有较高的`初始渲染`消耗
+使用场景| 元素很少切换 | 元素频繁的切换
 
-> 如果元素涉及到频繁的切换，最好不要使用 v-if，而是使用 v-show
->
-> 如果一个元素可能永远也不会被显示出来被用户看到，则推荐使用 v-if
 
-```
-<div id="app">
-    <!-- <input type="button" value="点击" @click="toggle"> -->
-    <input type="button" value="点击" @click="flag=!flag">
-
-    <h3 v-if="flag">这是用v-if控制的元素</h3>
-    <h3 v-show="flag">这是用v-show控制的元素</h3>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-    var app = new Vue({
-        el:"#app",
-        data:{
-            flag:true
-        },
-        methods:{
-            toggle(){
-                this.flag = !this.flag
-            }
-        }
-    })
-</script>
-```
-没点按钮前（显示）:
-```
-<h3>这是用v-if控制的元素</h3>
-<h3>这是用v-show控制的元素</h3>
-```
-点了按钮 隐藏后:
-```
-<!---->
-<h3 style:"display:none;">这是用v-show控制的元素</h3>
-```
-
-# v-else-if
+## v-else-if
 
 ```
 <div v-if="type === 'A'">
@@ -60,7 +25,7 @@
     Not A/B/C
 </div>
 ```
-## v-else渲染可能有延迟
+## 问题：v-else渲染可能有延迟
 延迟原因：v-if 切换的时候是重新渲染DOM结构的
 
 解决方法：

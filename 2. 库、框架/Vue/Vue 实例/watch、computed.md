@@ -1,6 +1,6 @@
 # watch
 使用这个属性，可以监视 data 中指定数据的变化，然后触发这个 watch 中对应的 function 处理函数
-```
+```html
  <div id="app">
     <input type="text" v-model="firstname" >+
     <input type="text" v-model="lastname" >=
@@ -34,7 +34,7 @@
 
 ### watch 监视路由地址的变化
 watch可以用于监视非DOM元素的变化
-```
+```html
 <div id="app">
     <router-link to='/login'>登录</router-link>
     <router-link to='/register'>注册</router-link>
@@ -84,7 +84,7 @@ watch可以用于监视非DOM元素的变化
 - **注意2**：只要计算属性，这个 function 内部，所用到的 任何 data 中的数据发生了变化，就会立即重新计算这个计算属性的值
 - **注意3**：计算属性的求值结果，会被缓存起来，方便下次直接使用；如果计算属性方法中，所以来的任何数据，都没发生过变化，则不会对数据重新求值
 
-```
+```html
 <div id="app">
     <input type="text" v-model="firstname" >+
     <input type="text" v-model="lastname" >=
