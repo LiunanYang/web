@@ -59,7 +59,6 @@ watch可以用于监视非DOM元素的变化
         linkActiveClass:'myactive'  //和激活相关的类
     })
 
-
     var app = new Vue({
         el:"#app",
         router,

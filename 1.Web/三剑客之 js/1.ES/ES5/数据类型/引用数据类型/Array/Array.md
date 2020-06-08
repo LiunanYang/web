@@ -34,27 +34,24 @@ if(Array.isArray(value)){
 ```
 ## 转换方法
 ### <font color="blue">toString()</font>
-- 返回由数组中每个值的字符串形式拼接而成得一个以逗号分隔得字符串
+- 返回一个字符串，由数组中每个值的字符串形式拼接而成，以逗号分隔
 - 调用valueOf()返回的还是数组
-
+- 不改变原数组
 ### <font color="blue">toLocaleString()</font>
 - 也会创建一个数组值的以逗号分隔的字符串
-```
-var colors = ["red","blue"]
-alert(colors.toString())  //red,blue
-alert(colors.valueOf())   //["red","blue"]
-alert(colors.toLocaleString())  //red,blue
-alert(colors)             //["red","blue"]
-```
+- 这些字符串将使用一个特定语言环境的字符串
+
 ### <font color="blue">join（）</font>
 - 将数组转换成字符串，不会改变原数组，将转换后的字符串作为结果返回。
 - 可以指定一个字符串作为参数，这个字符将作为数组中元素的连接符。
+- 不改变原数组
 ```
 console.log(colors.join("~")) //red~blue
 ```
 ### <font color="blue">flat()</font>
 按照一个可指定的深度递归遍历数组，将遍历到的数组与子数组中的元素合并为一个元素返回
 - 会移除数组中的空项
+- 不改变原数组
 > 语法：arr.flat(depth)
 - **depth**:遍历的深度，默认为1,使用**Infinity**，展开任意深度的嵌套数组
 > 返回：展开后的新数组，不改变原数组
@@ -68,11 +65,11 @@ console.log(colors.flat(Infinity)) //[1, 2, 3, 5, 6, 7, 8, 10]
 - 栈是一种后进先出的数据结构
 ### push（）
 - 向数组末尾添加一个或多个元素
-- 返回:新数组的长度
+- 返回：新数组的长度
 - 改变原数组
 ### pop（）
 - 删除数组的最后一个元素
-- 返回：数组的最后一个元素
+- 返回：删除的元素
 - 改变原数组
 ## <font color="orange">队列方法</font>
 - 队列数据结构是先进先出
@@ -108,7 +105,8 @@ console.log(colors.flat(Infinity)) //[1, 2, 3, 5, 6, 7, 8, 10]
 
 ### slice（）
 - 从已有数组中选定返回的元素
-- 不会修改原数组，而是返回一个子数组
+- 不修改原数组
+- 返回一个子数组
 
 参数：
 >（ 截取开始位置的索引，截取结束位置的索引）。
