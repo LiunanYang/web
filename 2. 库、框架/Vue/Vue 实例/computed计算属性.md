@@ -33,6 +33,8 @@ var vm = new Vue({
   }
 })
 ```
+## “依赖”如何实现
+
 # 计算属性缓存 vs 方法
 
 ```javascript
