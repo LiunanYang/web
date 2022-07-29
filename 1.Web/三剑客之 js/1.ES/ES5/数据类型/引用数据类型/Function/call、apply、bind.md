@@ -1,4 +1,4 @@
-```
+```js
   function fun(a,b){
     console.log(`${this.name},a:${a},b:${b}`)
   }
@@ -11,13 +11,12 @@
     age:30
   }
   fun.apply(o1,[1,2,3]) 
-  fun.call(o2,1) 
+  fun.call(o2,1,2) 
   fun.bind(o2)(1,2)
 ```
 # apply()
-- 调用一个具有给定this值的函数，以及作为一个数组或类数组对象提供的参数。
-- 接受的是**参数数组**
 - apply（）方法需要将实参封装到一个数组中统一传递。
+- 接受的是**参数数组**
 
 语法：
 > func.apply(thisArg, [argsArray])
@@ -29,18 +28,10 @@ var numbers = [5, 6, 2, 3, 7];
 var max = Math.max.apply(null, numbers);
 console.log(max);  //7
 ```
-> 例如：用apply将数组添加到另一个数组
-```
-var array = ['a', 'b'];
-var elements = [0, 1, 2];
-array.push.apply(array, elements);
-console.info(array);  //["a", "b", 0, 1, 2]
-```
-
 # call() 
-- 使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。
+- 使用一个指定的 this 值和一个或多个参数来调用一个函数
 - 接受的是**参数列表**
-- call（）方法可以将实参在对象之后一次传递；
+- call（）方法可以将实参在对象之后一次传递
 
 语法:
 > fun.call(thisArg, arg1, arg2, ...)
@@ -65,3 +56,7 @@ function Food(name, price) {
 }
 console.log(new Food('cheese', 5).name);  //cheese
 ```
+
+# bind
+- 修改 this 指向，但不会立即执行，会返回一个修改了this指向后的函数
+- bind 传参和 call 相同，传参数列表，也可以在调用函数时传入

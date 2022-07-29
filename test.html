@@ -6,21 +6,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
   <style>
-    
+    /* #pa {
+      border: 1px solid blue;
+      width: 350px;
+      height: 300px;
+      display:table;
+
+    }
+    .cell{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .child{
+      border: 1px solid red;
+      width: 180px;
+      height: 100px;
+      display: inline-block;
+    } */
+    /* .child2{
+      flex:2 0 100px;
+    } */
   </style>
 </head>
+
 <body>
-  
-  
+  <div id="pa">
+    <div class="cell">
+      <div class="child">1</div>
+    </div>
+        
+    <!-- <div class="child child2">2</div>    
+    <div class="child">3</div>    
+    <div class="child">4</div>    
+    <div class="child">5</div>    
+    <div class="child">6</div>    
+    <div class="child">7</div>    
+    <div class="child">8</div>    
+    <div class="child">9</div>     -->
+  </div>
 
-  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
   <script>
-    // 'use strict'
+    let a;
+    var b;
+    console.log(a,b);
+    a=1;
+    b=1;
 
-    function fn (){ console.log(this) ;console.log('fn'); }
-    function fn2 (){ console.log(this) ;console.log('fn2'); }
-    var arr = [fn, fn2]
-    // arr[0]()
+    function debounce(fn,delay){
+      let timer
+      let that = this
+      return function(){
+        if(timer){clearTimeout(timer)}
+        timer = setTimeout(()=>{
+          fn.apply(this,arguments)
+          timer = null
+        },delay)
+      }
+    }
+    function say(x){
+      console.log('hello',x)
+    }
+    let debounceFn = debounce(say,2000)
+    window.onresize = debounceFn.bind(null,'00')
+
+    
+    window.onresize = ()=>{
+      debounceFn('00')
+      
+    }
   </script>
 </body>
 </html>

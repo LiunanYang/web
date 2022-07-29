@@ -121,56 +121,6 @@ props: {
   }
 ```
 
-# 父组件向子组件传值 props
-
-组件实例的作用域是孤立的。子组件中，默认无法访问到父元素中的 data 上的数据 和 methods 中的方法。
-
-要让子组件使用父组件的数据，要通过子组件的**props**
-
-父组件可以在引用子组件的时候，通过 属性绑定(v-bind：)的形式，把需要传递给子组件的数据，以属性绑定的形式，传递到子组件内部，在子组件的 props 中定义一下，就可以使用了
-
-
-```
-<div id="app">
-    <com1 :parentmsg="msg"></com1>
-</div>
-
-var app = new Vue({
-    el:"#app",
-    data:{
-        msg:'【啊，这是父组件中的数据】'
-    },
-    components:{
-        com1:{
-            data(){
-                return {
-                    title:'123',
-                    content:'qqq'
-                }
-            },
-            template:'<h3>这是子组件-{{ parentmsg }}-{{ title }}</h3>',
-            props:['parentmsg'] 
-        }
-    }
-})
-```
-
-# 子组件向父组件传递值 $emit()
-
-> 子组件可以通过 **$emit()** 触发函数来修改父组件的值
-
-```
-父组件中：
-<com @give="fun"></com>
-
-fun(父组件的值名字,要传的值){
-    
-}
-
-子组件中：
-this.$emit("give",父组件的值名字,要传的值)
-
-```
 
 # 组件案例-评论列表
 ```html
@@ -250,15 +200,3 @@ this.$emit("give",父组件的值名字,要传的值)
     -  如果获取到的 localStorage 中的评论字符串，为空不存在，则可以返回一个 '[]' ，让JSON。parse 去转换
     -  把最新的评论列表数组再次调用 JSON.stringify ，转为数组字符串，然后调用 loaclStorage.setItem()
 
-
-# 父组件调用子组件的方法
-
-```
-<child ref="mychild"></child>  //子组件
-
-this.$refs.mychild.func("a");  //父组件,func 是子组件的方法
-
-```
-
-# 子组件调用父组件的方法
-子组件中直接使用 this.$parent.parentFn 给父组件传值

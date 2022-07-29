@@ -6,5 +6,3 @@
 
 
 
-# 双向绑定的原理
-Vue内部通过Object.defineProperty方法属性拦截的方式，把data对象里每个数据的读写转化成getter/setter，当数据变化时通知视图更新。
