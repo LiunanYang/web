@@ -27,54 +27,60 @@
     /* .child2{
       flex:2 0 100px;
     } */
+    #a{
+      width:300px;
+      height:300px;
+      background-color: pink;
+    }
+    #b{
+      width:200px;
+      height:250px;
+      background-color: blue;
+    }
+    #c{
+      width:100px;
+      height:200px;
+      background-color: red;
+    }
+
   </style>
 </head>
 
 <body>
-  <div id="pa">
-    <div class="cell">
-      <div class="child">1</div>
+  <div id="a">a
+    <div id="b">b
+        <div id="c">c</div>
     </div>
-        
-    <!-- <div class="child child2">2</div>    
-    <div class="child">3</div>    
-    <div class="child">4</div>    
-    <div class="child">5</div>    
-    <div class="child">6</div>    
-    <div class="child">7</div>    
-    <div class="child">8</div>    
-    <div class="child">9</div>     -->
-  </div>
+</div>
 
   <script>
-    let a;
-    var b;
-    console.log(a,b);
-    a=1;
-    b=1;
 
-    function debounce(fn,delay){
-      let timer
-      let that = this
-      return function(){
-        if(timer){clearTimeout(timer)}
-        timer = setTimeout(()=>{
-          fn.apply(this,arguments)
-          timer = null
-        },delay)
-      }
-    }
-    function say(x){
-      console.log('hello',x)
-    }
-    let debounceFn = debounce(say,2000)
-    window.onresize = debounceFn.bind(null,'00')
 
-    
-    window.onresize = ()=>{
-      debounceFn('00')
-      
-    }
+var a = document.getElementById("a"),
+    b = document.getElementById("b"),   //a1 a3 a4 b a2
+    c = document.getElementById("c");
+    c.addEventListener("click", function (event) {
+    console.log("c1");
+});
+c.addEventListener("click", function (event) {
+    console.log("c2");
+}, true);
+b.addEventListener("click", function (event) {
+    console.log("b");
+}, true);
+a.addEventListener("click", function (event) {
+    console.log("a1");
+}, true);
+a.addEventListener("click", function (event) {
+    console.log("a2")
+});
+a.addEventListener("click", function (event) {
+    console.log("a3");
+    // event.stopImmediatePropagation();
+}, true);
+a.addEventListener("click", function (event) {
+    console.log("a4");
+}, true);
   </script>
 </body>
 </html>

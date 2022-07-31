@@ -1,6 +1,6 @@
 # vuex
-Vuex 是状态管理工具
-
+Vuex 是全局状态管理工具，把各个组件公用的数据放在一起进行统一管理，使得父子组件数据共享更加简单明了，也让项目更好维护，只要数据发生了变化，其他组件里引入数据的地方也会相应更新
+## **使用**
 1. 安装
 2. 在src目录下新建store 文件夹，新建一个index.js
 ```javascript
@@ -28,11 +28,14 @@ new Vue({
   store,
 })
 ```
+## **通信流程**
 
-## state
+
+## **store组成** 
+### state
 - 共享状态/变量 
 - 通过 `this.$store.state` 来访问vuex中定义的变量
-## mutation
+### mutation
 - 只能通过 `this.$store.commit` 提交 mulation 的方式更改 store 状态
 - 方法参数第一个是 state，通过 state 获取 store 中的变量
 - 不能包含异步操作。虽然异步也可以执行，但是对devtool调试的状态跟踪或多个状态更改操作相互依赖是很不好的，所以不要觉得只要不报错我就可以这么用，还是尽量按照规则来比较好
@@ -76,7 +79,7 @@ addNum(){
   })
 }
 ```
-## action
+### action
 - 异步更改状态
 - 方法第一个参数是一个与 store 实例具有相同方法和属性的 context 对象，通过context.state获取store中的变量
 - 通过 this.$store.dispatch 调用 action 中的方法
@@ -99,8 +102,7 @@ actions:{
 }
 ```
 
-
-## getter
+### getter
 - getter 可以认为是 store 的计算属性
 - getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
 - Getter 接受 state 作为其第一个参数,也接受其他 getter 作为第二个参数
@@ -130,11 +132,11 @@ getters:{
   }
 }
 ```
-## module
+### module
 将store分割成不同的模块
 
-# vuex辅助函数
-## mapState
+## **vuex辅助函数**
+### mapState
 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。可以使用 mapState 辅助函数帮助生成计算属性。
 
 使用 mapState前：
@@ -188,7 +190,7 @@ export default {
 }
 ```
 
-## mapGetters
+### mapGetters
 将 store 中的 getters 映射到局部计算属性，与state类似
 
 使用对象展开运算符将 getters 混入 computed 对象中:
@@ -214,7 +216,7 @@ export default {
 
 当getter的属性名与组件内data的属性名冲突时？
 
-## mapMutations
+### mapMutations
 使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用
 ```javascript
 import { mapMutations } from 'vuex'
@@ -230,7 +232,7 @@ export default {
   }
 }
 ```
-## mapActions
+### mapActions
 ```javascript
 import { mapActions } from 'vuex'
  
