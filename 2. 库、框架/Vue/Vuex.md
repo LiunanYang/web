@@ -1,5 +1,50 @@
 # vuex
-Vuex 是全局状态管理工具，把各个组件公用的数据放在一起进行统一管理，使得父子组件数据共享更加简单明了，也让项目更好维护，只要数据发生了变化，其他组件里引入数据的地方也会相应更新
+### **是什么**
+- vuex 是 vue 的全局状态管理工具，实现了大范围数据共享的技术方案，方便、高效实现组件之间数据共享
+- 把各个组件公用的数据放在一起进行统一管理，使得父子组件数据共享更加简单明了，也让项目更好维护，只要数据发生了变化，其他组件里引入数据的地方也会相应更新
+### **好处**
+- 存取一步到位，不需要层层传递
+- 数据流向清晰
+- 存储在 vuex 中的数据是响应式的
+### **包含**
+- State
+- Mutation
+- Action
+- Getter
+- Moudle
+### **State**
+存储全局共享的数据。
+
+访问 state 的方式：
+1. this.$store.state.名称
+2. 使用 mapState 辅助函数，可以把 Store 中的 state 数据，映射为当前组件的计算数据
+
+### **Mutation**
+- 组件不能直接修改state，Mutation 本质上是 js 函数，用来变更 state 中的数据
+- 形参第一个永远是 state 对象
+- 在组件中通过 `this.$store.commit('方法名')`调用 mutation 方法
+
+### **Action**
+- JS 函数，处理 vuex 中的异步操作
+- action 不能直接修改state，需要将异步操作的结果交给 mutation，mutation 修改 state
+- 通过`this.$store.dispatch('调用的 action方法 ',参数)`
+- 可以通过 mapActions 辅助函数，把 Store 中指定的 action 映射为当前组件的methods
+
+### **Getter**
+是 vuex 中的计算属性
+
+访问方式：
+1. this.$store.getters.xxx
+2. 通过 mapGetters 辅助函数，把 store 中的 getter 映射为当前组件的计算属性
+
+### **Module**
+- 按照模块化的开发思想，把不同的数据和方法进行封装
+- 模块的 state 是方法
+- 可以开启命名空间
+
+--- 
+（详细版）
+
 ## **使用**
 1. 安装
 2. 在src目录下新建store 文件夹，新建一个index.js

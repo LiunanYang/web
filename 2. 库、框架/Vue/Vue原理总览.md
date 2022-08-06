@@ -6,5 +6,31 @@
 # 双向绑定的原理
 Vue内部通过Object.defineProperty方法属性拦截的方式，把data对象里每个数据的读写转化成getter/setter，当数据变化时通知视图更新。
 
+手写双向绑定
+```html
+<input type="text" id="input">
+<span id='value'></span>
+
+<script>
+  let input = document.querySelector('#input')
+  let value = document.querySelector('#value')
+
+  let obj = {},temp
+  input.addEventListener('input',(e)=>{
+    obj.value = input.value
+  })
+  Object.defineProperty(obj,'value',{
+    get(){
+      return temp
+    },
+    set(val){
+      temp = val
+      value.innerHTML = val
+      input.value = val
+    }
+  })
+</script>
+```
+
 # 响应式原理：
 每个组件实例都对应一个 watcher 实例，它会在组件渲染的过程中把“接触”过的数据 property 记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。

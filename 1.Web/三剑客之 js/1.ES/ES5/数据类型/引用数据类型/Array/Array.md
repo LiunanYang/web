@@ -5,24 +5,23 @@
 - 获取数组的长度： 数组.length 。对于连续的数组，可以获取到数组的长度（元素的个数）；对于不连续数组，返回的是数组的最大索引加一。
 ## 创建数组
 ### 使用Array构造函数
-```
-var colors = new Array(5) //可以省略new
-[empty × 5] => [,,,,]
-var colors = Array(20,10)
-[20,10]
-```
-### 数组字面量表示法
-```
-var colors = ["red","green"]
+```js
+var colors = new Array(5) // [empty × 5] => [,,,,]
+// 可以省略new
+var colors = Array(5,2) // [5,2]
 ```
 ### Array.of()
-```
+```js
 Array.of(5)  //[5]
+Array.of(5,2)  //[5,2]
 ```
-
+### 数组字面量表示法
+```js
+var colors = ["red","green"]
+```
 ## 检测数组
-- arr instanceof Array
 - Array.isArray(arr)
+- arr instanceof Array
 - Object.prototype.toString.call(arr) == '[object Array]'
 - arr.constructor == Array
 
@@ -40,7 +39,8 @@ Array.of(5)  //[5]
 - 可以指定一个字符串作为参数，这个字符将作为数组中元素的连接符。
 - 不改变原数组
 ```
-console.log(colors.join("~")) //red~blue
+var colors = ["red","green"]
+colors.join("~") //red~blue
 ```
 ### 4.flat()  
 按照一个可指定的深度递归遍历数组，将遍历到的数组与子数组中的元素合并为一个元素返回
