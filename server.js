@@ -27,3 +27,47 @@
 // }
 // console.log(new Food('cheese', 5).name);  //cheese
 
+  // let a = 12
+  // let b = a
+  // b = 13
+  // console.log(a)  //12
+
+  // let a = {n:12}
+  // let b = a
+  // b['n'] = 13
+  // console.log(a.n)  //13
+
+  // let a = {n:12}
+  // let b = a
+  // b = {n:13}
+  // console.log(a.n)  //12
+
+let arr=[1,20,88,3,4,5,[6,7,[8,9,[10]]]]
+function flat1(arr){
+  let res = []  
+  for(let item of arr){
+    if(Array.isArray(item)){
+      // res = res.concat(flat(arr[i]))
+      res.push(...flat1(item))
+    }else{
+      res.push(item)  
+    }
+  }
+  return res
+}
+// console.log(flat1(arr).sort((a,b)=>a-b))
+
+// Array.prototype.flat1 = flat
+// console.log(flat1())
+// function flat3(arr){
+  // return 
+  function flat3(arr){
+    return arr.join(',').split(',').map(v =>parseInt(v));
+    // return arr.toString().split(',').map(v =>parseInt(v));
+  }
+// }
+console.log(flat3(arr))
+
+// arr.reduce((prev,curv,i,list)=>{
+//   return 
+// },[])

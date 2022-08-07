@@ -59,3 +59,16 @@ foo = {}; // TypeError: "foo" is read-only
 
 ## 顶层对象的属性
 - 在浏览器环境指的是window对象，在Node指的是global对象
+
+
+```
+  let x = [12,23]
+  function fn(y){
+    y[0]=100
+    y=[100]
+    y[1]=200
+    console.log(y)    
+  }
+  fn(x)
+  console.log(x) 
+```

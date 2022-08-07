@@ -64,8 +64,6 @@ Vue实例创建、运行、销毁期间伴随的各种事件
         mounted(){
             console.log(document.getElementById("h3").innerText)
         },
-
-
         // 接下来是运行中的两个事件
         beforeUpdate(){ //这时候表示我们的界面还没有被更新，数据被更新了
             console.log( "界面上元素的内容是：" + document.getElementById("h3").innerText)
@@ -77,7 +75,6 @@ Vue实例创建、运行、销毁期间伴随的各种事件
             console.log( "data中的 msg 数据是：" + this.msg)
             // 在 updated 事件执行的时候，页面和data 数据已经保持同步了，都是最新的
         }
-
         // 当执行 boforeDestroy 钩子函数的时候，Vue 实例就已经从运行阶段，进入到了 销毁阶段
         // 当执行了 beforeDestory 的时候，实例身上所有的 data 和所有的 methods ，以及过滤器、指令...都处于可用状态，此时，还没有真正执行销毁的过程
     })

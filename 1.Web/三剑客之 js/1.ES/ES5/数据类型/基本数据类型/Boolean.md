@@ -7,6 +7,6 @@
 Boolean | true | false
 String | 任何非空字符串 | ""空字符串
 Number | 任何非零数字值(包括无穷大) | 0和NaN
-undefined |  | √
-null | | √
-Object | √ |
+undefined | × | √
+null | × | √
+Object | √ | ×

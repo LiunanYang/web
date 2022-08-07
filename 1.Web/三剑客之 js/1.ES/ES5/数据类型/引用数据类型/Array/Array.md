@@ -50,6 +50,39 @@ colors.join("~") //red~blue
 - **depth**:遍历的深度，默认为1,使用**Infinity**，展开任意深度的嵌套数组
 > 返回：展开后的新数组，不改变原数组
 
+#### **自己实现 flat **
+**递归+push/concat**
+``` JS
+function flat(arr){
+  let res = []  
+  for(let i=0; i<arr.length; i++){
+    if(Array.isArray(arr[i])){
+      // res = res.concat(flat(arr[i]))
+      res.push(...flat(arr[i]))
+    }else{
+      res.push(arr[i])  
+    }
+  }
+  return res
+}
+```
+**递归+reduce**
+```JS
+function flat3(arr){
+  return arr.reduce((prev, curv) => {
+    return prev.concat(Array.isArray(curv) ? flat3(curv) : curv)
+  }, []);
+}
+```
+**join + split**
+```js
+function flat3(arr){
+  return arr.join(',').split(',').map(v =>parseInt(v));
+  // return arr.toString().split(',').map(v =>parseInt(v));
+}
+```
+
+
 ### 5.push（...items）
 - 向数组末尾添加一个或多个元素
 - 返回：新数组的长度
@@ -88,6 +121,7 @@ colors.join("~") //red~blue
 ### 12.reverse()
 - 会反转数组项的顺序
 - 改变原数组
+
 ### 13.sort()
 - 若没有使用参数，则默认按照Unicode编码来排序，不可以直接来对数组中的数字进行排序
 - 改变原数组  

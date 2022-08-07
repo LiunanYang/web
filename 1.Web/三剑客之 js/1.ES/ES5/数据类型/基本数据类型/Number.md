@@ -45,13 +45,6 @@ null 值 | 返回0
 undefined | 返回NaN
 字符串 | 只包含数字->转换为十进制数； 包含浮点格式->对应的浮点数值；十六进制->转为相同大小的十进制整数值；空字符串->返回0；其他->返回NaN
 
-```
-var num = Number("hello")   //NaN
-var num = Number("")   //0
-var num = Number("000011")  //11
-var num = Number(true)   //1
-```
-
 2. **parseInt()**
 ```
 var num = parseInt("1234red")  //1234
