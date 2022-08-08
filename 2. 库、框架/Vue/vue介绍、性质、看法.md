@@ -16,7 +16,7 @@
 
 2. 双向数据绑定
 
-通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时触发相应的监听回调来渲染视图。
+通过 Object.defineProperty() 来劫持各个属性的 setter，getter，在数据变动时触发相应的监听回调来渲染视图
 
 3. 指令
 

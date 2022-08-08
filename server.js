@@ -1,73 +1,151 @@
-
-// let http = require('http');
-// let url = require('url');
-// let querystring=require('querystring');//操作参数模块
-
-// let str='[{"name":"zhangSan","password":"999"},{"name":"yangliunan","password":"123"}]';
-
-// function onRequest(request, response){
-//   let urlStr = url.parse(request.url);
-//   let param=querystring.parse(urlStr.query);
-//   console.log("收到请求.");
-//   response.writeHead(200,{"Content-Type":'text/plain','charset':'utf-8','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'PUT,POST,GET,DELETE,OPTIONS'});//可以解决跨域的请求
-//   // console.log(param);  //输出  { name: '鲁班大师', iq: '250' }
-//   response.write(str);
-//   response.end();
-// }
-// http.createServer(onRequest).listen(8888); 
-
-// function Product(name, price) {
-//   this.name = name;
-//   this.price = price;
-// }
-// function Food(name, price) {
-//   // Product.call(this, name, price);
-//   Product();
-// 	this.category = 'food';
-// }
-// console.log(new Food('cheese', 5).name);  //cheese
-
-  // let a = 12
-  // let b = a
-  // b = 13
-  // console.log(a)  //12
-
-  // let a = {n:12}
-  // let b = a
-  // b['n'] = 13
-  // console.log(a.n)  //13
-
-  // let a = {n:12}
-  // let b = a
-  // b = {n:13}
-  // console.log(a.n)  //12
-
-let arr=[1,20,88,3,4,5,[6,7,[8,9,[10]]]]
-function flat1(arr){
-  let res = []  
-  for(let item of arr){
-    if(Array.isArray(item)){
-      // res = res.concat(flat(arr[i]))
-      res.push(...flat1(item))
-    }else{
-      res.push(item)  
-    }
+// 链表
+class Node{
+  constructor(value, next){
+    this.value = value
+    this.next = next
   }
-  return res
 }
-// console.log(flat1(arr).sort((a,b)=>a-b))
-
-// Array.prototype.flat1 = flat
-// console.log(flat1())
-// function flat3(arr){
-  // return 
-  function flat3(arr){
-    return arr.join(',').split(',').map(v =>parseInt(v));
-    // return arr.toString().split(',').map(v =>parseInt(v));
+class MyLinkedList{
+  constructor(){
+    this.head = null
+    this.count = 0
+  };
+  size(){
+    return this.count;
+  };
+  push(el){
+    const node = new Node(el)
+    if(this.head == null){
+      this.head = node
+    }else{
+      let current = this.head
+      while(current.next!=null){
+        current = current.next
+      }
+      current.next = node
+    }
+    this.count++
+  };
+  getElementAt(idx){
+    if(idx>=0 && idx<=this.count){
+      let current = this.head
+      for(let i=0;i<idx;i++){
+        current = current.next
+      }
+      return current
+    }
+  };
+  indexOf(el){
+    if(this.count > 0){
+      const node = new Node(el)
+      let current = this.head
+      for(let i=0;i<this.count;i++){
+        if(current.value == node.value){
+          return i
+        }
+        current = current.next
+      }
+      return -1
+    }
+  };
+  insert(el,pos){
+    if(pos>=0 && pos<=this.count){
+      const node = new Node(el)
+      if(pos==0){
+        node.next = this.head
+        this.head = node
+      }else{
+        let prev = this.getElementAt(pos-1)
+        node.next = prev.next
+        prev.next = node
+      }
+      this.count++
+    }
+  };
+  removeAt(idx){
+    let delNode 
+    if(idx==0){
+      delNode=this.head
+      this.head = this.head.next
+    }
+    else if(idx>0 && idx<this.count-1){
+      let prev = this.getElementAt(idx-1)
+      delNode=prev.next
+      let current = prev.next.next
+      prev.next = current
+    }
+    else if(idx==this.count-1){
+      let prev = this.getElementAt(idx-1)
+      delNode=prev.next
+      prev.next = null
+    }
+    this.count--
+    return delNode
+  };
+  remove(el){
+    if(this.head!=null){
+      const node = new Node(el)
+      if(this.head.value == node.value){
+        this.head = this.head.next
+      }else{
+        let current = this.head
+        for(let i=0;i<this.count-1;i++){
+          if(current.next.value == node.value){
+            current.next = current.next.next
+            this.count--
+          }
+          current = current.next
+        }
+      }
+    }
+  };
+  isEmpty(){
+    return this.count==0?true:false
   }
-// }
-console.log(flat3(arr))
+}
 
-// arr.reduce((prev,curv,i,list)=>{
-//   return 
-// },[])
+class DoublyNode extends Node{
+  constructor(value,next,prev){
+    super(value,next)
+    this.prev = prev
+  }
+}
+class DoublyLinkedList extends MyLinkedList{
+  constructor(){
+    super()
+    this.tail = null
+  };
+  insert(el, pos){
+    const node = new DoublyNode(el)
+    if(pos==0){
+      if(this.head==null){
+        this.head = node
+        this.tail = node
+      }else{
+        node.next = this.head
+        this.head.prev = node
+        this.head = node
+      } 
+    }else if(pos>0 & pos<this.count){
+      
+    }else if(pos=this.count){
+      this.tail.next = node
+      node.prev = this.tail
+      this.tail = node
+    }
+    this.count++
+  }
+}
+
+
+let list = new MyLinkedList()
+list.push(1)
+// console.log(list)
+let doublyList = new DoublyLinkedList()
+// doublyList.push(1)
+doublyList.insert('a',0)
+doublyList.insert('b',0)
+doublyList.insert('c',2)
+
+console.log(doublyList)
+
