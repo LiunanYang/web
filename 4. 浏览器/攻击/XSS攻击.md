@@ -45,12 +45,12 @@ cross-site-scripting 跨站脚本攻击，是代码注入攻击
 
 ### 2.CSP (Content-Security-Policy)
 
-CSP 的本质就是建立白名单。开发者明确告诉浏览器哪些外部资源可以加载和执行。
+CSP 的本质就是建立白名单，定义页面可以加载哪些资源
 
-我们配置规则，如何拦截是由浏览器自己实现的。
+我们配置规则，如何拦截是由浏览器自己实现的
 
 **开启 CSP**
-1. 设置 HTTP Header 中的 Content-Security-Policy
+1. 设置 HTTP 响应 Header 中的 Content-Security-Policy
 2. 设置 meta 标签的方式 <meta http-equiv="Content-Security-Policy">
 
 示例:
