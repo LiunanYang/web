@@ -149,3 +149,50 @@ doublyList.insert('c',2)
 
 console.log(doublyList)
 
+let list = new MyLinkedList()
+list.push('a')
+list.push('b')
+list.push('c')
+list.push('d')
+list.push('e')
+// console.log(list)
+// let circleItem = list.getElementAt(2)
+// let tail = list.getElementAt(list.size()-1)
+// tail.next = circleItem
+// console.log(circleLinkedlist(list))
+
+function circleLinkedlist(list){
+  let slow = list.head
+  let fast = list.head.next
+  while(fast){
+    if(slow==fast){
+      return true
+    }else{
+      slow = slow.next
+      fast = fast.next.next
+    }
+  }
+  return false
+}
+
+function reverse(list){
+  let prev = list.head
+  let last = list.head.next
+  let current
+  prev.next = null
+  for(let i=0; i<list.size()-2; i++){
+    current = last
+    last = current.next
+    current.next = prev
+    prev = current
+  }
+  list.head = last
+  last.next = prev
+}
+reverse(list)
+let cur = list.head
+for(let i=0; i<list.size(); i++){
+  console.log(cur)
+  cur = cur.next
+}
+
