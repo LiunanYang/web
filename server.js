@@ -196,3 +196,112 @@ for(let i=0; i<list.size(); i++){
   cur = cur.next
 }
 
+const demo = {a: false, b: undefined, c: null};
+const {a = 1, b = 2, c = 3} = demo;
+
+console.log(a, b, c);
+false 2 null
+
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  console.log(2);
+});
+promise.then(() => {
+  console.log(3);
+});
+console.log(4);
+1 2 4 
+
+console.log('script start') 
+
+async function async1() {
+  await async2()
+  console.log('async1 end') 
+}
+
+async function async2() {
+  console.log('async2 end')
+}
+
+async1()
+
+setTimeout(function() {
+  console.log('setTimeout')
+}, 0)
+
+new Promise(resolve => {
+
+console.log('Promise')
+  resolve()
+})
+.then(function() {
+  console.log('promise1')
+})
+.then(function() {
+  console.log('promise2') 
+})
+
+console.log('script end')
+
+'script start'
+'async2 end'
+'Promise'
+'script end'
+'async1 end'
+'promise1'
+'promise2'
+'setTimeout'
+
+'script start' 'async2 end' 'async1 end' 'Promise' 'script end' 'promise1' 'promise2' 'setTimeout'
+
+const deepClone = target => {
+  if(typeof target == 'object'){
+    let cloneTarget = Array.isArray(target) ? [] :{}
+    for(let item in target){
+      cloneTarget[item] = deepClone(target[item])
+    }
+    return cloneTarget
+  } else {
+    return target
+  }
+};
+
+
+根据一棵树的前序遍历与中序遍历构造二叉树。
+注意:
+你可以假设树中没有重复的元素。
+节点
+ function TreeNode(val) {
+   this.val = val;
+   this.left = this.right = null;
+ };
+例如，给出
+前序遍历 preorder = [3,9,20,15,7]
+中序遍历 inorder = [9,3,15,20,7]
+输出：
+图片: https://uploader.shimo.im/f/S1ZZKKFqPOZb06mf.png!thumbnail?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2NjAxMzk3MjcsImZpbGVHVUlEIjoiWnprTFZNWm4yamlLbW8zUSIsImlhdCI6MTY2MDEzOTQyNywiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjo4MjMxNzg0N30.w_ucoOt3OiMUJRDuzdgmVFWvVr014m8naagZoNPDsik
+{
+    val: 3,
+    left: {val: 9, right: null, left: null},
+    right: {
+        val: 20,
+        right:  {val: 7, right: null, left: null},
+        left:  {val: 15, right: null, left: null}
+    }
+}
+
+const buildTree = （preoder = [], inorder = []） => {
+  if(preoder.length==0){
+    return null
+  }
+  let node = new TreeNode(preoder[0])
+  let rootIndex = inorder.indexOf(preoder[0])
+  let inorderLeft = inorder.slice(0,rootIndex)
+  let inorderRight = inorder.slice(rootIndex+1)
+  let preoderLeft = preoder.slice(1,rootIndex)
+  let preoderRight = preoder.slice(rootIndex+1)
+  node.left = buildTree(preoderLeft,inorderLeft)
+  node.right = buildTree(preoderRight,inorderRight)
+  return node
+};
+
