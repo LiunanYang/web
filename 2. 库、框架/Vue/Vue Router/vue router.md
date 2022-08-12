@@ -1,11 +1,4 @@
-# 安装
-## 通过 script 引入
-
-## npm
-
-## 
-
-# 使用
+# vue-router 使用
 
 页面中：
 - 使用 `router-link`组件来导航
@@ -61,5 +54,6 @@ const app = new Vue({
 }).$mount('#app')
 ```
 
-## 路由器
-可以在组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由 
+# this.$router 和 this.route
+- this.$router 是全局 ruoter 实例，任何组件都可以调用它的 push、replace、go 方法
+- this.$route 访问当前路由信息，可以获取路由的 path、params、query 信息
