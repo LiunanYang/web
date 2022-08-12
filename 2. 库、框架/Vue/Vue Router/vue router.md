@@ -30,6 +30,23 @@ const routes = [
     {path:"/foo",component:Foo}
 ]
 ```
+```js
+import Vue from 'vue'
+import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    }
+  ]
+})    
+```
 ### 4.创建 router 实例，传 `routes` 配置
 
 ```javascript
@@ -37,7 +54,6 @@ const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
 })
 ```
-
 ### 5.创建和挂载根实例。
 ```javascript
 const app = new Vue({
