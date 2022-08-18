@@ -1,0 +1,56 @@
+# vue bus
+
+是一个组件公用的事件中心，可以向该中心发送事件或者接受事件
+
+问题：
+- 数据流向不清晰，难以维护
+
+## 使用
+
+### 初始化
+第一种，新建一个 .js 文件
+```js
+// event-bus.js
+import Vue from 'vue'
+export const EventBus = new Vue()
+```
+第二种，直接在项目的 main.js 中创建全局 EventBus
+```
+// main.js
+Vue.prototype.$EventBus = new Vue()
+```
+
+### 发送事件
+
+```js
+import { EventBus } from "../event-bus.js";
+export default {
+  methods: {
+    sendMsg() {
+      EventBus.$emit("aMsg", '来自A页面的消息');
+    }
+  }
+}; 
+```
+### 接受事件
+```js
+import { 
+  EventBus 
+} from "../event-bus.js";
+export default {
+  data(){
+    return {
+      msg: ''
+    }
+  },
+  mounted() {
+    EventBus.$on("aMsg", (msg) => {
+      // A发送来的消息
+      this.msg = msg;
+    });
+  }
+};
+```
+### 移除事件监听
+- EventBus.$off('aMsg') 来移除应用内所有对此某个事件的监听
+- EventBus.$off() 来移除所有事件频道，不需要添加任何参数
