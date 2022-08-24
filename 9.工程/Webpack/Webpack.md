@@ -3,6 +3,10 @@
 
 输出的文件叫做`bundle`，就是编译好的文件，可以在浏览器端运行。
 
+## 两种模式配置文件
+- 开发模式 webpack.dev.js：代码编译，自动化运行
+- 生产模式 webpack.prod.js：代码编译，优化输出
+
 ## 五大核心概念
 ### **1.entry 入口**
 指定webpack入口文件
@@ -70,8 +74,8 @@ plugins:[
 ],
 ```
 ### **5.mode 模式**
-- development 开发模式：仅能编译 js 中 ES Module 的语法
-- production 生产模式：能编译 ES Module 语法，还能压缩 js 代码
+- development 开发模式：仅能编译 ES Module 的语法
+- production 生产模式：能编译 ES Module 语法，还能压缩代码
 
 dev开发模式，开发代码时使用的模式
 - 编译代码，使浏览器识别运行
@@ -81,12 +85,13 @@ dev开发模式，开发代码时使用的模式
 - 没有配置文件，运行webpack的写法：`npx webpack ./src/index.js --mode=xxx`
 - 有配置文件`webpack.config.js`运行时的写法：`npx webpack`
 
-使用Babel，对 js 兼容性处理
-使用Eslint，对代码格式处理
+## 相关技术
+使用 Babel，对 js 兼容性处理
+使用 Eslint，对代码格式处理
 
-### webpack可以做什么事情？？？
-- webpack 能够处理 JS 文件的相互依赖关系
-- webpack 能够处理 JS 的兼容性问题，把高级的、浏览器不识别的语法，转为低级的、浏览器能正常识别的语法
-- 资源压缩打包在一起，避免额外的网络请求
+## webpack 优点
+- 能够处理 JS 的兼容性问题，把高级的、浏览器不识别的语法，转为低级的、浏览器能正常识别的语法
+- 资源打包，避免额外的网络请求
+- 资源压缩，减少请求数据体积
 - 文件丢失会直接在编译时报错，而不是到用户端产生404错误
 - 最终生成的文件名包含哈希，不会获取到浏览器缓存旧版本
