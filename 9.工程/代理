@@ -1,0 +1,85 @@
+背景：在开发阶段，前端项目运行在`localhost`的一个端口上，后台服务运行在另一个地址上
+
+
+
+[devServer.proxy 配置](https://webpack.docschina.org/configuration/dev-server/#devserverproxy)
+https://segmentfault.com/a/1190000017402690
+https://github.com/chimurai/http-proxy-middleware/issues/146
+
+
+# 代理
+## 背景
+
+## 原理
+想要实现代理首先需要一个中间服务器
+
+## 具体过程/场景
+
+# webpack 代理 - devServer.proxy
+webpack 中提供服务器的工具为 webpack-dev-server。
+
+webpack-dev-server 把自动编译、自动刷新浏览器等一系列对开发友好的功能集成在一起，目的是为了提高开发者的效率，只适用在开发阶段
+
+## devServer 配置
+devServer里面proxy则是关于代理的配置，该属性为对象的形式
+
+- 属性的名称是需要被代理的请求路径前缀，一般为了辨别都会设置前缀为 /api，
+- 值为对应的代理匹配规则，对应如下：
+  - target：表示的是代理到的目标地址
+  - pathRewrite：默认情况下，我们的 /api 也会被写入到URL中，如果希望删除，可以使用 pathRewrite
+  - secure：默认情况下不接收转发到https的服务器上，如果希望支持，可以设置为false
+  - changeOrigin：它表示是否更新代理后请求的 headers 中host地址
+
+## 具体跨域场景配置
+项目前端 js 发起请求：
+```js
+let axios = require('axios')
+
+axios.get('/api/v1/topics').then((res)=>{
+  console.log(res)
+}).catch((err)=>{
+  console.log(err)
+})
+```
+webpack.dev.js:
+```js
+devServer:{
+  host:'localhost',
+  port:9709,
+  proxy:{
+    "/api": {
+      target:"https://www.vue-js.com",
+      secure: false,
+      changeOrigin:true,
+    }
+  }
+}
+```
+## 遇到的错误及排查过程
+
+### 1.node.js ECONNRESET - proxy
+浏览器响应 504，devSever报错信息如下
+```
+[webpack-dev-server] [HPM] Error occurred while proxying request localhost:9709/api/v1/topics to https://www.vue-js.com/ [ECONNRESET] (https://nodejs.org/api/errors.html#errors_common_system_errors)
+```
+#### 问题排查
+- 确认接口是否有问题：https://www.vue-js.com/api/v1/topics 通过浏览器url直接访问接口，返回200，正常返回数据的
+- 确认前端代理是否启动成功：localhost:9709/api/v1/topics，直接打开url报错`Error occurred while trying to proxy: localhost:9709/api/v1/topics`
+
+devServer.proxy 设置`changeOrigin:true`
+
+### 2. ECONNRESET - secure
+```
+[webpack-dev-server] [HPM] ECONNRESET: Error: Client network socket disconnected before secure TLS connection was established
+```
+
+请求的是https接口，devServer 里配置 `secure: false`
+
+### 3.301资源重定向+cors
+报错：
+```
+Access to XMLHttpRequest at 'https://www.vue-js.com/api/v1/topics' (redirected from 'http://localhost:9709/api/v1/topics') from origin 'http://localhost:9709' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+原因是请求接口应该是 https，但是配置写成了 http，向http接口发送请求后，返回了 301 Moved Permanently，然后自动向重定向的接口发起了请求，因为新接口没有配置代理，所以产生cors错误
+
+### [一个优秀的问题排查记录](https://juejin.cn/post/6844904080679124999)
