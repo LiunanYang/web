@@ -63,5 +63,33 @@ foo.myApply(bar, [5]);
 
 🌟实现bind:
 ```js
+Function.prototype.mybind = function(context, ...args1) {
+  if(this == Function.prototype) {
+    return 
+  }
+  const that = this
+  return function F(...args2) {
+    // 要用that，这里是this 是 F 函数对象
+    // 判断是否是构造函数
+    if (that instanceof F) {
+      return new that(...args1,...args2)
+    }
+    return this.apply(context,args1.concat(args2))
+  }
+}
 
+let bar = {
+  name: 'zhang'
+}
+function foo(age, hobby) {
+  this.age = age
+  this.hobby = hobby
+  console.log(this.name, this.age, this.hobby)
+}
+// 测试非构造函数使用
+foo.mybind(bar, 5)('play')
+// 测试构造函数使用
+let o = foo.mybind(bar)
+let o1 = new o(6, 'swimming')
+let o2 = new o(7, 'cooking')
 ```
