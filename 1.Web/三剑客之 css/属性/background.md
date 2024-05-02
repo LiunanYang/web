@@ -1,6 +1,5 @@
-# 简写属性
-## background
-顺序是：
+# background
+简写顺序是：
 1. background-color 默认为透明或者继承父元素
 2. background-image 默认为无
 3. background-repeat 默认为repeat
@@ -10,6 +9,8 @@
 /* CSS3 新增的 */
 
 6. background-size 取决于背景图像和元素的尺寸，如果没有显式指定尺寸，并且图像尺寸和元素尺寸不匹配，那么图片保持原始尺寸（auto）
+  - cover：尽可能的缩放背景图片并保持图像原宽高比例以完全覆盖背景区，可能会有部分显示不出来
+  - contain：缩放背景图片完全装入背景区，可能导致背景区部分空白
 
 7. background-origin 定义背景图片从哪里开始绘制
   - padding-box：背景图像从元素的 padding 区域开始绘制（默认值）
@@ -28,15 +29,3 @@ div {
   background: #ffffff url('image.jpg') no-repeat right top / 200px 100px fixed padding-box content-box;  
 }
 ```
-
-## font
-顺序是：
-1. font-style 字体的样式
-2. font-variant 定义英文是否以小型大写字母文本展示
-3. font-weight 字体的粗细
-- 关键字，如 normal、bold、bolder、lighter。
-- 数字值，范围从 100 到 900，其中 400 等同于 normal，700 等同于 bold
-4. font-size⭐️ / line-height 字体大小/行高
-5. font-family⭐️ 定义文本的字体
-
-> 写缩写属性时，必须包含 font-size 和 font-family

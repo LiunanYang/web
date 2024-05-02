@@ -1,14 +1,14 @@
-# css3 新增特性
+# css3 新增属性
 ## 边框，盒子
 - border-radius:边框圆角
 - border-image:边框图像
 - box-sizing:盒子阴影
 ## 背景
 - background-size 背景图片的尺寸
-- background_origin 背景图片的定位区域
+- background-origin 背景图片从哪里开始绘制
 - background-clip 背景图片的绘制区域
 ## 文本
-- text-shadow:文字阴影
+- text-shadow: 文字阴影
 - text-overflow：文字溢出处理
 ## 渐变
 - linear-gradient 线性渐变
