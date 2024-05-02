@@ -1,8 +1,11 @@
 # css3 新增属性
+## 布局
+- flex
+- grid
 ## 边框，盒子
-- border-radius:边框圆角
-- border-image:边框图像
-- box-sizing:盒子阴影
+- box-sizing：盒模型
+- border-radius：边框圆角
+- border-image：边框图像
 ## 背景
 - background-size 背景图片的尺寸
 - background-origin 背景图片从哪里开始绘制
@@ -16,7 +19,7 @@
 ## 过渡 
 - transition：过渡动画
 ## 动画
-- animation:自定义动画
+- animation: 自定义动画
 ## 转换 2d、3d
 - transform:转换
   - rorate(deg):2d旋转
