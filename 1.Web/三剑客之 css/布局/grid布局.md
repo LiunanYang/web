@@ -6,7 +6,8 @@ grid容器属性
 - grid-template-rows 有多少行
 - gap 项目的间距 
 - justify-content、align-content 网格在水平轴和垂直轴的对齐方式
-- justify-items、align-items 网格项的对齐方式
+- align-items、justify-items 网格项的对齐方式
+  - 缩写place-items
 
 
 grid项目属性
