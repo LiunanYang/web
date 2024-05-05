@@ -19,17 +19,14 @@
   - center：居中
 - **align-items**：每一行/单行在交叉轴（默认是垂直轴）对齐方式
   - strech/baseline/flex-start/flex-end/center
-- **align-content**：多行作为一个整体在交叉轴上的对齐方式
+- **align-content**：多行作为一个整体在交叉轴上的对齐方式(仅对多行flex布局有效)
   - strech/space-between/space-around/flex-start/flex-end/center
 
 ## flex-item 的属性
-
 - **order**：定义项目排列顺序，数值越小，排序越靠前，默认为0
 - **flex-grow**: flex item 扩大规则，在有剩余空间时如何扩大，默认为0
 - **flex-shrink**：flex item 的收缩规则，默认为1，
-- **
-**：定义flex item 在主轴方向上的初始大小
-  - 必须加上单位，不然可能被当成伸缩性，默认为auto
+- **flex-basis**：定义flex item 在主轴方向上的初始大小
 - **align-self**：项目单独指定交叉轴对齐方式
 
 ### flex 属性：flex-grow，flex-shrink，flex-basis 缩写，可以指定1个，2个或3个值
