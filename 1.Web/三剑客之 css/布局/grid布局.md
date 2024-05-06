@@ -1,12 +1,12 @@
 # grid
-
 ### 属性
 grid容器属性
-- grid-tempalte-columns 有多少列
-- grid-template-rows 有多少行
+- grid-tempalte-columns 每列的宽度
+- grid-template-rows 每行的高度
 - gap 项目的间距 
 - justify-content、align-content 网格在水平轴和垂直轴的对齐方式
-- justify-items、align-items 网格项的对齐方式
+- align-items、justify-items 网格项的对齐方式
+  - 缩写place-items
 
 
 grid项目属性
@@ -22,4 +22,4 @@ grid项目属性
 
 ### flex布局和grid布局的区别
 - flex 是一维布局，它主要作用于父级容器，通过控制容器的排列规则达到效果。虽然flex布局有主轴和侧轴，可以在两个方向上进行排列，达到类似于二维的效果，但是实际 flex 布局主要是控制主轴上的排列，还是不能够精确的定位元素在容器的位置。
-- grid 二维布局，给容器定义行和列，划分成多个网格，可以控制容器内项目占据的位置和排列规则，精确的定位元素在容易的位置，实现各种布局。
+- grid 二维布局，给容器定义行和列，划分成多个网格，可以控制容器内项目占据的位置和排列规则，精确的定位元素在容器的位置，实现各种布局。
