@@ -22,7 +22,3 @@
 - animation: 自定义动画
 ## 转换 2d、3d
 - transform:转换
-  - rorate(deg):2d旋转
-  - scale(x,y):2d缩放
-  - skew(x,y):沿着x轴、y轴2d倾斜转换
-  - translate(x,y)：2d转换
