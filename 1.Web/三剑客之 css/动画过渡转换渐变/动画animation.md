@@ -1,99 +1,65 @@
-animation 属性是一个简写属性
+# animation
+可以创建复杂的动画效果，可以指定动画的名称、持续时间、动画速度曲线、延迟时间、播放次数、播放方向
 
-值|描述
---|--
-1. animation-name | 规定需要绑定到选择器的 keyframe 名称
-2. animation-duration | 完成动画所花费的时间
-3. animation-timing-function | 动画的速度曲线
-4. animation-delay | 在动画开始之前的延迟
-5. animation-iteration-count | 动画播放的次数
-6. animation-direction | 是否轮流反向播放动画
+特点：
+- 无需触发
+- 循环播放
+- 精确控制动画的每个阶段
+- 多种变化：动画关键帧可以设置多个样式
 
+## 参数
+### 1.animation-name
+定义动画名称，名称是 @keyframes 规则定义的名称
+
+### 2.animation-duration
+完成动画所花费的时间，默认值`0s`
+
+### 3.animation-timing-function
+动画的速度曲线
+- ease，默认值，慢快慢
+- linear：匀速
+- ease-in：慢快
+- ease-out：快慢
+- cubic-bezier函数：自定义速度模式,[可通过网站定制](https://cubic-bezier.com/)
+
+### 4.animation-delay
+在动画开始之前的延迟时间，默认值`0s`
+
+### 5.animation-iteration-count
+动画播放的次数，默认值为`1`
+- 设置`infinite` 无限次播放
+
+### 6.animation-direction
+动画播放的方向
+- normal：默认，每次循环都向前播放
+- reverse：每次循环向后播放
+- alternate：先向前再向后
+- alternate-reverse：先向后再向前
+
+### 7.animation-play-state
+控制动画的播放或暂停
+- running 播放，默认值
+- paused 暂停(也就是将它重置到开始状态)
+
+可以通过 js 控制动画的暂停或者播放
+```js
+// 有一个带有动画的元素ID为'myElement'  
+var element = document.getElementById('myElement');  
+// 停止动画  
+element.style.animationPlayState = 'paused';  
+// 播放动画  
+element.style.animationPlayState = 'running';  
 ```
-#main{
-      position: absolute;
-      top: 0;
-      left: 0;
-      /* border: 1px solid black; */
-      animation: main 2s infinite alternate;
-    }
-    #main div{
-      width: 100px;
-      height: 100px;
-      position: absolute;
-    }
-    #a{
-      clip-path: polygon(50% 0,100% 100%,0 100%);
-      animation: a 2s infinite alternate;
-      left: 0;
-    }
-    #b{
-      clip-path: polygon(0 0,100% 0,50% 100%);
-      animation: b 2s infinite alternate;
-      left:100px;
-    }
-    #c{
-      clip-path: polygon(50% 0,100% 100%,0 100%);
-      animation: c 2s infinite alternate;
-      left: 200px;
-    }
-    #d{
-      clip-path: polygon(0 0,100% 0,50% 100%);
-      animation: d 2s infinite alternate;
-      left: 300px;
-    }
-    @keyframes a{
-      0%,10%{
-        background-color:blue;
-        clip-path: polygon(50% 0,100% 100%,0 100%);
-      }
-      90%,100%{
-        background-color: red;
-        clip-path: polygon(0 0,100% 0,50% 50%);
-        left: 150px;
-      }
-    }
-    @keyframes b{
-      0%,10%{
-        background-color:green;
-        clip-path: polygon(0 0,100% 0,50% 100%);
-      }
-      90%,100%{
-        background-color: red;
-        clip-path: polygon(0 0,50% 50%,0 100%);
-        left: 150px;
-      }
-    }
-    @keyframes c{
-      0%,10%{
-        background-color:orange;
-        clip-path: polygon(50% 0,100% 100%,0 100%);
-      }
-      90%,100%{
-        background-color: red;
-        clip-path: polygon(100% 0,100% 100%,50% 50%);
-        left: 150px;
-      }
-    }
-    @keyframes d{
-      0%,10%{
-        background-color:yellow;
-        clip-path: polygon(0 0,100% 0,50% 100%);
-      }
-      90%,100%{
-        background-color: red;
-        clip-path: polygon(50% 50%,100% 100%,0 100%);
-        left: 150px;
-      }
-    }
-    @keyframes main{
-      0%,10%{
-        width:400px;
-        height:100px;
-      }
-      90%,100%{
-        width: 100px;
-        height: 100px;
-      }
-    }
+
+## @keyframe
+定义动画序列中的关键帧，使用百分比或 from 和 to
+
+定义一个动画名称，例如example
+```css
+@keyframes example {  
+  0%   {background-color: red;} /* 动画开始时 */  
+  25%  {background-color: yellow;} /* 动画25%时 */  
+  50%  {background-color: blue;} /* 动画50%时 */  
+  100% {background-color: green;} /* 动画结束时 */  
+}
 ```
