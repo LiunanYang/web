@@ -58,3 +58,6 @@ var a=10;
   fn(x)
   console.log(x) 
 ```
+
+## 相关
+如何实现一个const？
