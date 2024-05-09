@@ -1,5 +1,5 @@
 1.
-```
+```js
 	Promise.resolve().then(() => {
     console.log('1');
     throw 'Error';
@@ -17,7 +17,7 @@
   });
 ```
 2.
-```
+```js
   Promise.reject('error')
   .then( ()=>{console.log('success1')}, ()=>{console.log('error1')} )
   .then( ()=>{console.log('success2')}, ()=>{console.log('error2')} )

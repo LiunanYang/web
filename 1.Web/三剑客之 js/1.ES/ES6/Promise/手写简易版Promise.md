@@ -1,4 +1,4 @@
-```
+```js
   /**实现简易版 Promise*/
   // 创建三个常量表示状态，便于开发和后期维护
   const PENDING = 'pending'
