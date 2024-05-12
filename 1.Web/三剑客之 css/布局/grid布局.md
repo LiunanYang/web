@@ -6,7 +6,7 @@ grid容器属性
 - gap 项目的间距 
 - justify-content、align-content 网格在水平轴和垂直轴的对齐方式
 - align-items、justify-items 网格项的对齐方式
-  - 缩写place-items
+  - 缩写 place-items
 
 
 grid项目属性
