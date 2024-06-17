@@ -1,4 +1,4 @@
-## form
+# form
 表单的作用就是将用户的信息提交给远程服务器的
 
 ### form标签属性
@@ -55,3 +55,63 @@
 
 在表单中可以使用 fieldset 来对表单项进行分组 
 -在 fieldset 中可以使用 legend 子标签来指定组名
+
+# form 表单只有一个input 时，回车自动提交表单造成页面刷新效果
+
+现象：el-form 中仅有一个input，input上设置了回车响应事件，首次按回车键后，页面刷新，再次按回车才执行了响应事件.                                                                                                  
+```HTML
+<el-form ref="form" @submit.native.prevent>
+  <el-form-item prop="vefication" :error="smsVerificationCodeForm.veficationError">
+    <el-input
+      ref="smsCodeInput"
+      v-model="smsVerificationCodeForm.vefication"
+      placeholder="Input code"
+      type="vefication"
+      maxlength="6"
+      style="margin-top: 10px;"
+      @keyup.enter.native="onSMSCodeSubmit('form')"
+    >
+      <el-link v-if="!timeTrue" slot="suffix" class="get-verify-code" :underline="false" @click.native="sendSMSCode">Get Verification Code
+      </el-link>
+      <span v-if="timeTrue" slot="suffix">{{ time }}S</span>
+    </el-input>
+  </el-form-item>
+</el-form>
+```
+先了解一下 form 标签
+
+form表单中只有一个input时，按回车键，会自动提交表单（见1），并且url 多一个问号（见2）
+
+￼
+
+1. 
+When there is only one single-line text input field in a form, the user agent should accept Enter in that field as a request to submit the form.
+
+https://www.rfc-editor.org/rfc/rfc1866.txt  8.2
+￼
+2.
+8.2.2  
+￼
+
+如果 form 表单没有指定 action 属性，按回车键，会向当前url提交，实际起到了页面刷新的效果，
+但是这时提交并没有传表单参数，也就是仅仅只有现url
+
+所以要解决的问题不是页面刷新，而是取消form 内只有一个input时按回车键的默认提交行为,
+
+
+解决方法
+
+1.
+对于原生form标签：
+form标签中添加事件 `<form onsubmit="return false;”>`，阻止form表单的提交，
+
+对于vue中 
+取消form表单默认提交行为，可以在 `<el-form>` 标签上添加 @submit.native.prevent
+
+增加一个input dom 节点，设置为不显示，破坏“只有一个input”的条件
+```html
+<form action="http://www.baidu.com">
+  <input type="text">
+  <input type="text" style="display:none;">
+</form>
+```
